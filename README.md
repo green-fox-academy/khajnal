@@ -3,7 +3,7 @@
 <h3>The repository of my class, Teapot:</h3>
 <ul>
   <li>
-    <a href="https://github.com/orgs/green-fox-academy/teams/alopex-teapot/repositories">Teapot class
+    <a href="https://github.com/green-fox-academy/teapot-syllabus.git">Teapot class
     </a>
   </li>
 </ul>
