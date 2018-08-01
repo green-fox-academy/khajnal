@@ -2,12 +2,12 @@
 
 <h3>Other repositories, what I created:</h3>
 <ul>
-  <ls>
+  <li>
     <a src="https://github.com/khajnal/patchwork.git">Patchwork</a>
-  </ls>
-  <ls>
+  </li>
+  <li>
     <a src="https://github.com/khajnal/git-lesson-repository.git">git-lesson-repository</a>
-  </ls>
+  </li>
 </ul>
 
 
