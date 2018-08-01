@@ -1,0 +1,15 @@
+img {
+  width: 100%;
+}
+body {
+  font-family: "Hanalei Fill", cursive;
+  margin: 0;
+}
+article {
+  width: 690px;
+  margin: auto;
+}
+h1,
+h2 {
+  text-align: center;
+}
