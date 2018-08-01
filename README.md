@@ -7,6 +7,7 @@
   </ls>
   <ls>
     <a src="https://github.com/khajnal/git-lesson-repository.git">git-lesson-repository</a>
+  </ls>
 </ul>
 
 
