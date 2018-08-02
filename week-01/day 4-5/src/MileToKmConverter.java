@@ -5,7 +5,7 @@ public class MileToKmConverter {
     Scanner in = new Scanner(System.in);
     System.out.println("Enter a distance in km:");
     int a = in.nextInt();
-    System.out.println("The distance is: " + (a * 1000) + " meter");
+    System.out.println("The distance is: " + (0.621371192 / a) + " miles");
 
   }
 }
