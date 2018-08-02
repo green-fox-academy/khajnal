@@ -39,7 +39,10 @@ public class VariableMutation {
     System.out.println(result4);
 
     String k = "Apple";
-    System.out.println(k);
+    for (int x = 0; x < 4; x++) {
+      System.out.println(k);
+    }
+
 
 
 

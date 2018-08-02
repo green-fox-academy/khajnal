@@ -6,7 +6,7 @@ public class CodingHours {
     System.out.println(days * averageCodingHours * semesterWeeks);
     int weeklyWorkingHours = 52;
     double hours = 6;
-    System.out.println(((hours * days) / weeklyWorkingHours) * 100 + "%");
+    System.out.println(hours * days / weeklyWorkingHours * 100 + "%");
 
 
 
