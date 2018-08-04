@@ -4,7 +4,7 @@ public class CodingHours {
     int semesterWeeks = 17;
     int days = 5;
 
-// The following statement prints the total amount of coding hours (based on average) during the semester.
+// The following statement prints the total amount of coding hours during the semester.
     System.out.println(days * (int) averageCodingHours * semesterWeeks);
 
     int weeklyWorkingHours = 52;

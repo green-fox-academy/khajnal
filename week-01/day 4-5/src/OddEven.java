@@ -5,10 +5,12 @@ public class OddEven {
     Scanner in = new Scanner(System.in);
     System.out.println("Write a number");
     int a = in.nextInt();
-    if (a % 2 == 0) {
+    if (a == 0) {
+      System.out.println("It's zero.");
+    } else if (a % 2 == 0) {
       System.out.println("It's an even nr");
     } else {
-      System.out.println("It's an odd nr");}
-
+      System.out.println("It's an odd nr");
+    }
   }
 }

@@ -17,7 +17,7 @@ public class VariableMutation {
     System.out.println(d);
 
     int e = 8;
-    e *= e*= e;
+    e *= e *= e;
     System.out.println(e);
 
     int f1 = 123;
@@ -34,15 +34,18 @@ public class VariableMutation {
     boolean result3 = h % 11 == 0;
     System.out.println(result3);
 
-    int j = 1521;
-    boolean result4 = j % 3 == 0 || j % 5 == 0;
+    int i1 = 10;
+    int i2 = 3;
+    boolean result4 = i1 > Math.pow(i2, 2) && i1 < Math.pow(i2, 3);
     System.out.println(result4);
 
-    String k = "Apple";
-    for (int x = 0; x < 4; x++) {
-      System.out.println(k);
-    }
+    int j = 1521;
+    boolean result5 = j % 3 == 0 || j % 5 == 0;
+    System.out.println(result5);
 
+    String k = "Apple";
+    k = k + k + k + k;
+    System.out.println(k);
 
 
 
