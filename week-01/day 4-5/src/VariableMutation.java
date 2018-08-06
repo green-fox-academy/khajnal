@@ -46,8 +46,5 @@ public class VariableMutation {
     String k = "Apple";
     k = k + k + k + k;
     System.out.println(k);
-
-
-
   }
 }
