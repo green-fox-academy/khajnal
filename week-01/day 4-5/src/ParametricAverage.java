@@ -5,12 +5,17 @@ public class ParametricAverage {
     Scanner in = new Scanner(System.in);
     System.out.println("Write me an integer");
     int userInput = in.nextInt();
-    int c = userInput;
+    int firstNumber = userInput;
+    int e = 0;
+    int c = 0;
+    int b = 0;
 
-    for (int b = 0; b < userInput; b++) {
-      System.out.println("Enter " + c-- + " more integer(s)");
-      in.nextInt();
+    for (b = 0; b < userInput; b++) {
+      System.out.println("Enter " + firstNumber-- + " more integer(s)");
+      e += in.nextInt();
+      c += b;
+
     }
-    System.out.println("Sum: " + "Average ");
+    System.out.println("Sum: " + e + " Average " + (double)e / b);
   }
 }
