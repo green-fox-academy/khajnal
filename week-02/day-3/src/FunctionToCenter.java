@@ -9,15 +9,16 @@ public class FunctionToCenter {
     for (int i = 0; i <= WIDTH; i++) {
       if (i % 20 == 0) {
         graphics.drawLine(i, 0, WIDTH / 2, HEIGHT / 2);
-//  not working lines for demo     graphics.drawLine(0, i, WIDTH / 2, HEIGHT / 2);
-//  not working lines for demo     graphics.drawLine(WIDTH, i, WIDTH / 2, HEIGHT / 2);
+//        graphics.drawLine(0, i, WIDTH / 2, HEIGHT / 2);
+//        graphics.drawLine(WIDTH, i, WIDTH / 2, HEIGHT / 2);
+//        equal sign
         graphics.drawLine(i, HEIGHT, WIDTH / 2, HEIGHT / 2);
       }
       for (int j = 0; j <= HEIGHT; j++) {
-        if (j % 20 == 0) {
-          graphics.drawLine(0, j, WIDTH / 2, HEIGHT / 2);
-          graphics.drawLine(WIDTH, j, WIDTH / 2, HEIGHT / 2);
-        }
+       if (j % 20 == 0) {
+         graphics.drawLine(0, j, WIDTH / 2, HEIGHT / 2);
+         graphics.drawLine(WIDTH, j, WIDTH / 2, HEIGHT / 2);
+       }
       }
     }
   }
