@@ -2,26 +2,27 @@ import javax.swing.*;
 import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Checkerboard {
+public class EnvelopeStar {
   public static void mainDraw(Graphics graphics) {
-    int size = WIDTH / 8;
-    int y = 0;
-    for (int i = 0; i < 9; i++) {
-      int x = 0;
-      for (int j = 0; j < 9; j++) {
-        if (i % 2 == j % 2) {
-          graphics.setColor(Color.WHITE);
-          graphics.fillRect(x, y, size, size);
-        } else {
-          graphics.setColor(Color.BLACK);
-          graphics.fillRect(x, y, size, size);
-        }
-        x += size;
-      }
-      y += size;
-    }
-  }
+    int nullX = WIDTH / 2;
+    int nullY = HEIGHT / 2;
+    int increment = WIDTH / 2;
+    int decrement = HEIGHT / 2;
+    int b = HEIGHT;
 
+    for (int i = 0; i < WIDTH / 2; i += 10) {
+      graphics.drawLine(i, nullY, nullX, decrement);
+      graphics.drawLine(i, nullY, nullX, increment);
+      graphics.drawLine(nullX, i, increment, nullY);
+      graphics.drawLine(nullX, b, increment, nullY);
+      decrement -= 10;
+      increment += 10;
+      b -= 10;
+    }
+    graphics.drawLine(nullX, 0, nullX, HEIGHT);
+
+
+  }
   static int WIDTH = 320;
   static int HEIGHT = 343;
 
@@ -41,5 +42,4 @@ public class Checkerboard {
       mainDraw(graphics);
     }
   }
-
 }

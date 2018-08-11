@@ -4,11 +4,13 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class PurpleSteps3d {
   public static void mainDraw(Graphics graphics) {
     Color mediumOrchid = new Color(186,85,211);
-    graphics.setColor(mediumOrchid);
     int startingPoint = 5;
     int cubeSize = 10;
     for (int i = 0; i < 6; i++) {
+      graphics.setColor(mediumOrchid);
       graphics.fillRect(startingPoint, startingPoint, cubeSize, cubeSize);
+      graphics.setColor(Color.black);
+      graphics.drawRect(startingPoint, startingPoint, cubeSize, cubeSize);
       startingPoint += cubeSize;
       cubeSize += 10;
     }
