@@ -16,5 +16,17 @@ public class JosefusProblem {
       index += 1;
     }
     System.out.println(everyoneList);
+
+    while (everyoneList.size() != 1) {
+      for (int i = 1; i < everyoneList.size(); i++) {
+        everyoneList.remove(i);
+          if (everyoneList.size()-1 == i) {
+            everyoneList.remove(0);
+          }
+        System.out.println(everyoneList);
+
+        }
+      }
+
+    }
   }
-}
