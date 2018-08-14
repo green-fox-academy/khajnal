@@ -8,17 +8,17 @@ import java.util.List;
 public class WriteMultipleLines {
   public static void main(String[] args) {
     String fruit = "apple";
-    Path filepath = Paths.get("/home/kriszti/Documents/Greenfox/fruitparty.txt");
+    Path filePath = Paths.get("/home/kriszti/Documents/Greenfox/fruitparty.txt");
     int lines = 5;
-    writeLines(filepath, fruit, lines);
+    writeLines(filePath, fruit, lines);
   }
-  private static void writeLines(Path filepath, String fruit, int lines) {
+  private static void writeLines(Path filePath, String fruit, int lines) {
     List<String> content = new ArrayList<>();
     for (int i = 0; i < lines; i++) {
       content.add(fruit);
     }
     try {
-    Files.write(filepath, content);
+    Files.write(filePath, content);
     } catch (IOException a) {
       System.out.println("Not working, sorry");
     }
