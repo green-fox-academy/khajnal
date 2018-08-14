@@ -5,9 +5,9 @@ public class DivideByZero {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Please enter a number");
     int divisor = scanner.nextInt();
-    divideByTen(divisor);
+    divide(divisor);
   }
-  public static void divideByTen(int example) {
+  public static void divide(int example) {
     int ten = 10;
     try {
       int result = ten /= example;
