@@ -16,13 +16,13 @@ public class Dominoes {
     newDominoes.add(dominoes.get(0));
     for (int i = 0; i < dominoes.size(); i++) {
       for (int j = 1; j < dominoes.size(); j++) {
-        if (dominoes.get(i).getValues()[1] == dominoes.get(j).getValues()[0]) {
+        if (newDominoes.get(i).getValues()[1] == dominoes.get(j).getValues()[0]) {
           newDominoes.add(dominoes.get(j));
         }
         }
       }return newDominoes;
     }
-
+    
   static List<Domino> initializeDominoes() {
     List<Domino> dominoes = new ArrayList<>();
     dominoes.add(new Domino(5, 2));
