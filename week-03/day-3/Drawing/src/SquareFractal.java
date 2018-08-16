@@ -1,22 +1,33 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.nio.file.WatchEvent;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SquareFractal{
 
   public static void mainDraw(Graphics graphics){
-    int size = WIDTH / 3;
-    drawSquare(WIDTH / 2 - size / 2,0, size, graphics);
-    drawSquare(WIDTH / 2 - size / 2,HEIGHT / 2 + size / 2, size, graphics);
-    drawSquare(WIDTH / 2 + size / 2,HEIGHT / 2 - size / 2, size, graphics);
-    drawSquare(WIDTH / WIDTH,HEIGHT / 2 - size / 2, size, graphics);
+    int size = 300;
+    int startingPositionX = 0;
+    int startingPositionY = 0;
+    drawSquareRecursion(startingPositionX, startingPositionY, size, graphics);
   }
   public static void drawSquare(int x, int y, int size, Graphics graphics) {
+    graphics.setColor(Color.yellow);
+    graphics.fillRect(x, y, size, size);
+    graphics.setColor(Color.black);
     graphics.drawRect(x, y, size, size);
   }
-
+  public static void drawSquareRecursion(int x, int y, int size, Graphics graphics) {
+    drawSquare(x, y, size, graphics);
+    if (size > 10) {
+      drawSquareRecursion(x + size / 3, y, size / 3, graphics);
+      drawSquareRecursion(x + size * 2 / 3, y + size/ 3, size / 3, graphics);
+      drawSquareRecursion(x, y + size / 3, size / 3,  graphics);
+      drawSquareRecursion(x + size / 3, y + size * 2 / 3, size / 3, graphics);
+    }
+  }
   //    Don't touch the code below
   static int WIDTH = 320;
   static int HEIGHT = 320;
