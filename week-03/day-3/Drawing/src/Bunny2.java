@@ -3,7 +3,6 @@ public class Bunny2 {
     int bunnies = 10;
     System.out.println(sumBunnyEars(bunnies));
   }
-
   private static int sumBunnyEars(int bunnies) {
     if (bunnies == 0) {
       return 0;
