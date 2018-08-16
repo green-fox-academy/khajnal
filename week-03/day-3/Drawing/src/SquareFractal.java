@@ -1,7 +1,6 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.nio.file.WatchEvent;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -44,8 +43,6 @@ public class SquareFractal{
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
       mainDraw(graphics);
-
     }
   }
-
 }
