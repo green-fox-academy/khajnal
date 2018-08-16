@@ -4,7 +4,7 @@ public class String3 {
     System.out.println(separateWithStars(text));
   }
   private static String separateWithStars(String text) {
-    if (text.length() == 0) {
+    if (text.length() == 1) {
       return text;
     } else  {
      return text.charAt(0) + "*" + separateWithStars(text.substring(1));
