@@ -13,11 +13,13 @@ public class Sierpinsky{
     int size = WIDTH / 3;
     drawRectFractal(xStartingPoint, yStartingPoint, size, graphics);
   }
+
   public static void drawRect (int x, int y, int size, Graphics graphics) {
     Random random = new Random();
     graphics.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
     graphics.fillRect(x, y, size, size);
   }
+  
   public static void drawRectFractal (int x, int y, int size, Graphics graphics) {
     drawRect(x, y, size, graphics);
     if (size > 5) {
@@ -32,8 +34,8 @@ public class Sierpinsky{
     }
   }
   //    Don't touch the code below
-  static int WIDTH = 320;
-  static int HEIGHT = 320;
+  static int WIDTH = 500;
+  static int HEIGHT = 500;
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(WIDTH, HEIGHT));
