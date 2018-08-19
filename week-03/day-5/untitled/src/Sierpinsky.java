@@ -19,7 +19,7 @@ public class Sierpinsky{
     graphics.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
     graphics.fillRect(x, y, size, size);
   }
-  
+
   public static void drawRectFractal (int x, int y, int size, Graphics graphics) {
     drawRect(x, y, size, graphics);
     if (size > 5) {
