@@ -5,6 +5,7 @@ public class Pirate {
   boolean passedOut;
   boolean alive;
   boolean parrot;
+  String captainName;
 
   public Pirate() {
     rumLvl = 0;
@@ -18,12 +19,21 @@ public class Pirate {
       parrot = false;
     }
   }
+  public Pirate(String captainName) {
+    rumLvl = 0;
+    passedOut = false;
+    alive = true;
+    parrot = true;
+    this.captainName = captainName;
+  }
 
   public int drinkSomeRum() {
     if (alive == true || passedOut == false) {
       rumLvl++;
-    } else {
+    } else if (alive == false){
       System.out.println("He's dead");
+    } else if (passedOut == true) {
+      System.out.println("He passed out");
     }
     return rumLvl;
   }
@@ -69,7 +79,9 @@ public class Pirate {
       }
     }
   }
+
   public void checkStatus() {
+    System.out.println("He's name is " + captainName);
     System.out.println("Rumlvl: " + rumLvl);
     System.out.println("Alive: " + alive);
     System.out.println("Passed out: " + passedOut);

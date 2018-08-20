@@ -1,19 +1,11 @@
 public class Main {
   public static void main(String[] args) {
-    Pirate pirate1 = new Pirate();
-    Pirate pirate2 = new Pirate();
-
-    pirate2.howItGoingMate();
-    pirate2.drinkSomeRum();
-    pirate2.drinkSomeRum();
-    pirate1.checkStatus();
-    pirate2.checkStatus();
-
-    pirate1.brawn(pirate2);
-    pirate1.checkStatus();
-    pirate2.checkStatus();
-
-
+    Ship mariaShip = new Ship("Maria");
+    mariaShip.fillship("John a Pocahontasbol");
+    System.out.println(mariaShip.checkMembers());
+    Ship santaShip = new Ship("Santa");
+    santaShip.fillship("Cristoforo Colombo");
+    System.out.println(santaShip.checkMembers());
 
   }
 }
