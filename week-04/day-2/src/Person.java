@@ -9,6 +9,12 @@ public class Person {
     gender = maleOrFemale;
   }
 
+  public Person() {
+    name = "Jane Doe";
+    age = 30;
+    gender = "female";
+  }
+
   public void introduce() {
     System.out.println("Hi, I'm " + name + " , a " + age + " year old " + gender + ".");
   }
