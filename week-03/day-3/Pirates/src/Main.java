@@ -6,7 +6,9 @@ public class Main {
     pirate2.howItGoingMate();
     pirate2.drinkSomeRum();
     pirate2.drinkSomeRum();
+    pirate1.checkStatus();
     pirate2.checkStatus();
+
     pirate1.brawn(pirate2);
     pirate1.checkStatus();
     pirate2.checkStatus();

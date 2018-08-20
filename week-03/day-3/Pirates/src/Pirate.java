@@ -4,11 +4,19 @@ public class Pirate {
   int rumLvl;
   boolean passedout;
   boolean alive;
+  boolean parrot;
 
   public Pirate() {
     rumLvl = 0;
     passedout = false;
     alive = true;
+    Random random = new Random();
+    int parrotCreator = random.nextInt(2);
+    if (parrotCreator == 0) {
+      parrot = true;
+    } else {
+      parrot = false;
+    }
   }
 
   public int drinkSomeRum() {
@@ -51,11 +59,11 @@ public class Pirate {
     } else {
       Random random = new Random();
       int luck = random.nextInt(3);
-      if (luck == 1) {
+      if (luck == 0) {
         alive = false;
-      } else if (luck == 2) {
+      } else if (luck == 1) {
         pirate2.alive = false;
-      } else if (luck == 3) {
+      } else if (luck == 2) {
         passedout = true;
         pirate2.passedout = true;
       }
@@ -65,5 +73,6 @@ public class Pirate {
     System.out.println("Rumlvl: " + rumLvl);
     System.out.println("Alive: " + alive);
     System.out.println("Passed out: " + passedout);
+    System.out.println("Parrot: " + parrot);
   }
 }
