@@ -2,13 +2,13 @@ import java.util.Random;
 
 public class Pirate {
   int rumLvl;
-  boolean passedout;
+  boolean passedOut;
   boolean alive;
   boolean parrot;
 
   public Pirate() {
     rumLvl = 0;
-    passedout = false;
+    passedOut = false;
     alive = true;
     Random random = new Random();
     int parrotCreator = random.nextInt(2);
@@ -20,7 +20,7 @@ public class Pirate {
   }
 
   public int drinkSomeRum() {
-    if (alive == true || passedout == false) {
+    if (alive == true || passedOut == false) {
       rumLvl++;
     } else {
       System.out.println("He's dead");
@@ -31,16 +31,16 @@ public class Pirate {
   public boolean howItGoingMate() {
     if (alive == false) {
       System.out.println("He's dead");
-    } else if (passedout == true) {
+    } else if (passedOut == true) {
       System.out.println("He passed out");
     } else if (rumLvl <= 4) {
       System.out.println("Pour me anudder!");
       rumLvl++;
     } else {
       System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
-      passedout = true;
+      passedOut = true;
     }
-    return passedout;
+    return passedOut;
   }
 
   public boolean die() {
@@ -48,11 +48,11 @@ public class Pirate {
   }
 
   public void brawn(Pirate pirate2) {
-    if (passedout == true) {
+    if (passedOut == true) {
       System.out.println("Do not hurt him, he passed out");
     } else if (alive == false) {
       System.out.println("You cannot fight with him. He is already dead");
-    } else if (pirate2.passedout == true) {
+    } else if (pirate2.passedOut == true) {
       System.out.println("Do not hurt him, he passed out");
     } else if (pirate2.alive == false) {
       System.out.println("You cannot fight with him. He is already dead");
@@ -64,15 +64,15 @@ public class Pirate {
       } else if (luck == 1) {
         pirate2.alive = false;
       } else if (luck == 2) {
-        passedout = true;
-        pirate2.passedout = true;
+        passedOut = true;
+        pirate2.passedOut = true;
       }
     }
   }
   public void checkStatus() {
     System.out.println("Rumlvl: " + rumLvl);
     System.out.println("Alive: " + alive);
-    System.out.println("Passed out: " + passedout);
+    System.out.println("Passed out: " + passedOut);
     System.out.println("Parrot: " + parrot);
   }
 }
