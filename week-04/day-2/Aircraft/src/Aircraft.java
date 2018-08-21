@@ -12,11 +12,6 @@ public class Aircraft {
     return baseDamage * ammo;
   }
 
-  public int refill(int ammoToFill) {
-    int remainingAmmo = 0;
-    return remainingAmmo;
-  }
-
   public String getType() {
     return " ";
   }
@@ -27,5 +22,22 @@ public class Aircraft {
 
   public boolean isPriority() {
     return true;
+  }
+
+
+  public int refill(int ammoToFill) {
+    int remainingAmmo = ammoToFill - (maxAmmo - ammo);
+    if (maxAmmo != ammo) {
+      int ammobase = ammo;
+      if (ammoToFill - ammo > 0) {
+        for (int i = 0; i < maxAmmo - ammobase; i++) {
+          ammo++;
+        }
+      } else {
+        for (int i = 0; i < maxAmmo - ammobase; i++) {
+          ammo++;
+        }
+      }
+    } return remainingAmmo;
   }
 }

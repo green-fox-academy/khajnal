@@ -5,17 +5,6 @@ public class F16 extends Aircraft {
     super.baseDamage = 30;
   }
 
-  public int refill(int ammoToFill) {
-    int remainingAmmo = ammoToFill - (maxAmmo - ammo);
-    if (maxAmmo != ammo) {
-      int ammobase = ammo;
-      for (int i = 0; i < maxAmmo - ammobase; i++) {
-        ammo++;
-      }
-    }
-    return remainingAmmo;
-  }
-
   public String getType() {
     return "F16";
   }
