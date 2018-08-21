@@ -24,12 +24,13 @@ public class Carrier {
       for (int i = 0; i < army.size(); i++) {
         if (army.get(i).isPriority()) {
           army.get(i).refill(ammoStore);
+          ammoStore -= army.get(i).ammo;
         }
       }
     } else {
-      for (int i = 0; i < army.size(); i++) { {
-          army.get(i).refill(ammoStore);
-        }
+      for (int i = 0; i < army.size(); i++) {
+        army.get(i).refill(ammoStore);
+        ammoStore -= army.get(i).ammo;
       }
     }
   }
