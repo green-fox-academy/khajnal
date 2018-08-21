@@ -26,18 +26,15 @@ public class Aircraft {
 
 
   public int refill(int ammoToFill) {
-    int remainingAmmo = ammoToFill - (maxAmmo - ammo);
+    int neededAmmo = maxAmmo - ammo;
     if (maxAmmo != ammo) {
-      int ammobase = ammo;
-      if (ammoToFill - ammo > 0) {
-        for (int i = 0; i < maxAmmo - ammobase; i++) {
-          ammo++;
-        }
+      if (ammoToFill >= neededAmmo) {
+        ammo = maxAmmo;
+        ammoToFill -= neededAmmo;
       } else {
-        for (int i = 0; i < maxAmmo - ammobase; i++) {
-          ammo++;
-        }
+        ammo += ammoToFill;
+        ammoToFill = 0;
       }
-    } return remainingAmmo;
+    } return ammoToFill;
   }
 }
