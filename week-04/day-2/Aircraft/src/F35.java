@@ -2,12 +2,14 @@ public class F35 extends Aircraft{
 
   public F35() {
     super.maxAmmo = 12;
+    super.baseDamage = 50;
   }
 
   public int refill(int ammoToFill) {
     int remainingAmmo = ammoToFill - (maxAmmo - ammo);
     if (maxAmmo != ammo) {
-      for (int i = 0; i < maxAmmo - ammo; i++) {
+      int ammobase = ammo;
+      for (int i = 0; i < maxAmmo - ammobase; i++) {
         ammo++;
       }
     }

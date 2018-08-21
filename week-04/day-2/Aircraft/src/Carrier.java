@@ -21,7 +21,16 @@ public class Carrier {
       allMissingAmmo += army.get(i).maxAmmo - army.get(i).ammo;
     }
     if (allMissingAmmo > ammoStore) {
-
+      for (int i = 0; i < army.size(); i++) {
+        if (army.get(i).isPriority()) {
+          army.get(i).refill(ammoStore);
+        }
+      }
+    } else {
+      for (int i = 0; i < army.size(); i++) { {
+          army.get(i).refill(ammoStore);
+        }
+      }
     }
   }
 }
