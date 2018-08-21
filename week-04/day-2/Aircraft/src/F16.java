@@ -14,4 +14,12 @@ public class F16 extends Aircraft {
     }
     return remainingAmmo;
   }
+
+  public String getType() {
+    return "F16";
+  }
+
+  public String getStatus() {
+   return "Type " + getType() + " Ammo: " + ammo + ", Base damage: " + baseDamage + ", All Damage " + allDamage;
+  }
 }

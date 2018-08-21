@@ -2,6 +2,7 @@ public class Aircraft {
   int ammo;
   int maxAmmo;
   int baseDamage;
+  int allDamage;
 
   public Aircraft() {
     ammo = 0;
@@ -14,5 +15,13 @@ public class Aircraft {
   public int refill(int ammoToFill) {
     int remainingAmmo = 0;
     return remainingAmmo;
+  }
+
+  public String getType() {
+    return " ";
+  }
+
+  public String getStatus() {
+    return " ";
   }
 }
