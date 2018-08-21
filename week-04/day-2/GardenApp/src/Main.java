@@ -11,5 +11,8 @@ public class Main {
     garden.addTree(tree2);
 
     garden.checkStatus();
+
+    garden.waterPlants(10);
+    garden.waterPlants(18);
   }
 }

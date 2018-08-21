@@ -9,11 +9,19 @@ public class Tree extends Plant {
       waterLvl += waterQty * 0.4;
     }
   }
+
   public void checkStatus() {
     if (waterLvl < 10) {
-      System.out.println("The " + color + " " + " Tree does need water");
+      System.out.println("The " + color + " Tree does need water");
     } else {
-      System.out.println("The " + color + " " + " Tree doesn't need water");
+      System.out.println("The " + color + " Tree doesn't need water");
     }
+  }
+
+  public boolean needsWater() {
+    boolean needsWater = false;
+    if (waterLvl < 5) {
+      return needsWater = true;
+    } return needsWater;
   }
 }

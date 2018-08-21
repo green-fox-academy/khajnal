@@ -9,11 +9,18 @@ public class Flower extends Plant{
       waterLvl += waterQty * 0.75;
     }
   }
+
   public void checkStatus() {
     if (waterLvl < 5) {
       System.out.println("The " + color + " " + "Flower does need water");
-    } else {
-      System.out.println("The " + color + " " + "Flower doesn't need water");
+      System.out.println("The " + color + " " + "Flower doesn't need water current water");
     }
+  }
+
+  public boolean needsWater() {
+    boolean needsWater = false;
+    if (waterLvl < 5) {
+      return needsWater = true;
+    } return needsWater;
   }
 }

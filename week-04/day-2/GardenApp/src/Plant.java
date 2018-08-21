@@ -14,4 +14,9 @@ public class Plant {
   public void checkStatus() {
 
   }
+
+  public boolean needsWater() {
+    boolean needsWater = false;
+    return needsWater;
+  }
 }
