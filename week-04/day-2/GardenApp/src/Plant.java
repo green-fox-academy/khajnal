@@ -1,6 +1,6 @@
 public class Plant {
   String color;
-  int waterLvl;
+  double waterLvl;
 
   public Plant(String color) {
     this.color = color;
