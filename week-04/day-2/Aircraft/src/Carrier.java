@@ -23,14 +23,15 @@ public class Carrier {
     if (allMissingAmmo > ammoStore) {
       for (int i = 0; i < army.size(); i++) {
         if (army.get(i).isPriority()) {
-          army.get(i).refill(ammoStore);
-          ammoStore -= army.get(i).ammo;
+          ammoStore = army.get(i).refill(ammoStore);
         }
+      }
+      for (int j = 0; j < army.size(); j++) {
+        ammoStore = army.get(j).refill(ammoStore);
       }
     } else {
       for (int i = 0; i < army.size(); i++) {
-        army.get(i).refill(ammoStore);
-        ammoStore -= army.get(i).ammo;
+        ammoStore = army.get(i).refill(ammoStore);
       }
     }
   }
