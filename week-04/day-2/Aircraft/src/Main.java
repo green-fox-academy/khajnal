@@ -3,6 +3,7 @@ public class Main {
     Aircraft f16 = new F16();
     Aircraft f35 = new F35();
     System.out.println(f35.getStatus());
+    System.out.println(f35.isPriority());
 
   }
 }

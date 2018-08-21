@@ -24,4 +24,8 @@ public class Aircraft {
   public String getStatus() {
     return " ";
   }
+
+  public boolean isPriority() {
+    return true;
+  }
 }

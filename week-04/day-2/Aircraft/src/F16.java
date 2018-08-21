@@ -22,4 +22,8 @@ public class F16 extends Aircraft {
   public String getStatus() {
    return "Type " + getType() + " Ammo: " + ammo + ", Base damage: " + baseDamage + ", All Damage " + allDamage;
   }
+
+  public boolean isPriority() {
+    return false;
+  }
 }
