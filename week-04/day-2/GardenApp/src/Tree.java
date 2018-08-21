@@ -4,7 +4,16 @@ public class Tree extends Plant {
     super(color);
   }
 
-  public void getWater(int water) {
-    waterLvl += water * 0.4;
+  public void water(double waterQty) {
+    if (waterLvl < 10) {
+      waterLvl += waterQty * 0.4;
+    }
+  }
+  public void checkStatus() {
+    if (waterLvl < 10) {
+      System.out.println("The " + color + " " + " Tree does need water");
+    } else {
+      System.out.println("The " + color + " " + " Tree doesn't need water");
+    }
   }
 }

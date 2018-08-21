@@ -6,4 +6,12 @@ public class Plant {
     this.color = color;
     waterLvl = 0;
   }
+
+  public void water(double waterQty) {
+
+  }
+
+  public void checkStatus() {
+
+  }
 }
