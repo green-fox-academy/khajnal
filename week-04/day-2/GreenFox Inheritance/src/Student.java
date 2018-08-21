@@ -25,4 +25,3 @@ public class Student extends Person {
     return skippedDays += numberOfDays;
   }
 }
-
