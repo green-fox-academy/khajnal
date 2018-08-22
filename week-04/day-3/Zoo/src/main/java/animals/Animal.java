@@ -1,8 +1,8 @@
 package main.java.animals;
 
-public abstract class Animal {
+public abstract class Animal implements Breedable {
   String name;
-  private String breedType;
+  protected String breedMethod;
   String gender;
   int hunger;
 
@@ -18,5 +18,5 @@ public abstract class Animal {
     hunger--;
   }
 
-  public abstract void breed();
+  public abstract String breed();
 }

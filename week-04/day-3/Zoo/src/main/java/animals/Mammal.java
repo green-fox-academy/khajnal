@@ -4,10 +4,10 @@ public class Mammal extends Animal {
 
   public Mammal(String name) {
     super(name);
+    super.breedMethod = "pushing miniature versions out";
   }
 
-  @Override
-  public void breed() {
-
+  public String breed() {
+    return breedMethod;
   }
 }

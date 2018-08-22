@@ -1,12 +1,12 @@
 package main.java.animals;
 
-public class Reptile extends Animal {
+public class Bird extends Animal {
 
-  public Reptile(String name) {
+  public Bird(String name) {
     super(name);
     super.breedMethod = "laying eggs";
   }
-
+  
   public String breed() {
     return breedMethod;
   }
