@@ -1,4 +1,6 @@
-package main.java.animals;
+package main.java.vehicles;
+
+import main.java.animals.Flyable;
 
 public class Helicopter extends Vehicle implements Flyable {
   @Override

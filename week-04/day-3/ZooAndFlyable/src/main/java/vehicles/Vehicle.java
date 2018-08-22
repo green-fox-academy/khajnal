@@ -1,4 +1,4 @@
-package main.java.animals;
+package main.java.vehicles;
 
 public abstract class Vehicle {
   String type;
