@@ -15,6 +15,6 @@ public class ElectricGuitar extends StringedInstrument {
 
   @Override
   void sound() {
-    System.out.println(sound);
+    System.out.println(name + ", a " + numberOfStrings + " stringed instrument that goes " + sound);
   }
 }
