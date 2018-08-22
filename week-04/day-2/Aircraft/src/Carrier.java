@@ -16,6 +16,9 @@ public class Carrier {
   }
 
   public void fill() {
+    if (ammoStore == 0) {
+      System.out.println("There is no ammo!");
+    }
     int allMissingAmmo = 0;
     for (int i = 0; i < army.size(); i++) {
       allMissingAmmo += army.get(i).maxAmmo - army.get(i).ammo;
@@ -33,6 +36,13 @@ public class Carrier {
       for (int i = 0; i < army.size(); i++) {
         ammoStore = army.get(i).refill(ammoStore);
       }
+    }
+  }
+
+  public void fight(Carrier carrier) {
+    int allDamage = 0;
+    for (int i = 0; i < army.size(); i++) {
+
     }
   }
 }

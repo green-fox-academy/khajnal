@@ -4,7 +4,7 @@ public class Main {
     Aircraft f35 = new F35();
     Aircraft f35sec = new F35();
 
-    Carrier myarmy = new Carrier(25, 500);
+    Carrier myarmy = new Carrier(12, 500);
     myarmy.add(f16);
     myarmy.add(f35);
     myarmy.add(f35sec);
