@@ -1,16 +1,6 @@
 package main.java.animals;
 
-public class Bird extends Animal implements Flyable{
-
-  public Bird(String name) {
-    super(name);
-    super.breedMethod = "laying eggs";
-  }
-
-  public String breed() {
-    return breedMethod;
-  }
-
+public class Helicopter extends Vehicle implements Flyable {
   @Override
   public String land() {
     return null;
