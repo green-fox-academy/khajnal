@@ -14,12 +14,12 @@ public class Anagram {
     return listOfStrings.size();
   }
 
-  public boolean ifAnagrams() {
+  public boolean ifAnagrams(Anagram listofStrings) {
     ArrayList<Character> firstString = new ArrayList<>();
     ArrayList<Character> secondString = new ArrayList<>();
     for (int i = 0; i < listOfStrings.get(0).length(); i++) {
-      firstString.add(listOfStrings.get(0).charAt(i));
-      secondString.add(listOfStrings.get(1).charAt(i));
+      firstString.add(listOfStrings.get(0).charAt(0));
+      secondString.add(listOfStrings.get(1).charAt(0));
     }
     return firstString.equals(secondString);
   }

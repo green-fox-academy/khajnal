@@ -17,6 +17,6 @@ public class AnagramTest {
 
   public void testIfAnagrams() {
     list.addTwoStringToAList("kutyakaja", "kajakutya");
-    list.ifAnagrams();
+    assertEquals(true,list.ifAnagrams(list));
   }
 }
