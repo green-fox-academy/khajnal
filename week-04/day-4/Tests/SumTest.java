@@ -20,7 +20,6 @@ public class SumTest {
   @Test
   public void sumTestWithEmptyList() {
     assertEquals(0, listToSum.sum());
-
   }
 
   @Test
@@ -32,4 +31,9 @@ public class SumTest {
     assertEquals(36, listToSum.sum());
   }
 
+  @Test
+  public void sumTestWithOneElement() {
+    listToSum.addToList(4);
+    assertEquals(4, listToSum.sum());
+  }
 }
