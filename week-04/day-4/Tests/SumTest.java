@@ -4,27 +4,32 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class SumTest {
-  Numbers toSum;
+  Numbers listToSum;
 
   @Before
   public void createASumList() {
-    toSum = new Numbers();
+    listToSum = new Numbers();
   }
 
   @Test
   public void checkIfElementAdded() {
-    toSum.addToList(4);
-    assertEquals(1, toSum.sizeOfList());
+    listToSum.addToList(4);
+    assertEquals(1, listToSum.sizeOfList());
   }
 
   @Test
   public void sumTestWithEmptyList() {
-    assertEquals(0, toSum.sizeOfList());
+    assertEquals(0, listToSum.sum());
 
   }
 
   @Test
   public void sumTestWithFourElement() {
+    listToSum.addToList(4);
+    listToSum.addToList(8);
+    listToSum.addToList(9);
+    listToSum.addToList(15);
+    assertEquals(36, listToSum.sum());
   }
 
 }
