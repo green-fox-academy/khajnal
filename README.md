@@ -17,9 +17,6 @@
     <a href="https://github.com/khajnal/git-lesson-repository.git">git-lesson-repository</a>
   </li>
   <li>
-    <a href="git@github.com:khajnal/todo-app.git">To-do Application</a>
+    <a href="https://github.com/khajnal/todo-app.git">To-do Application</a>
   </li>
 </ul>
-
-
-
