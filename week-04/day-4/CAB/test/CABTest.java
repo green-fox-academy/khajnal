@@ -21,7 +21,7 @@ public class CABTest {
   public void uniqueDigitNumberTest() {
     listOfNumbers.uniqueFourDigitNumber();
     assertEquals(4, listOfNumbers.nrOfDigits());
-    assertEquals(true,listOfNumbers.isUnique());
+    assertTrue(listOfNumbers.isUnique());
     }
 
     @Test
