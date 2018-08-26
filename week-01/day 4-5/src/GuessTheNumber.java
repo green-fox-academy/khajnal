@@ -4,17 +4,17 @@ public class GuessTheNumber {
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     System.out.println("Guess the number!");
-    int b = 8;
-    int c = in.nextInt();
-    while (c != b) {
-      if (c > b) {
+    int tobeGuessed = 8;
+    int guess = in.nextInt();
+    while (guess != tobeGuessed) {
+      if (guess > tobeGuessed) {
         System.out.println("The stored number is lower");
-        c = in.nextInt();
-      } else if (c < b) {
+        guess = in.nextInt();
+      } else if (guess < tobeGuessed) {
         System.out.println("The stored number is higher");
-        c = in.nextInt();
+        guess = in.nextInt();
       }
     }
-    System.out.println("You found the number " + b);
+    System.out.println("You found the number " + tobeGuessed);
   }
 }
