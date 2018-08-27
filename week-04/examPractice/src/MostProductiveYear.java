@@ -36,10 +36,12 @@ public class MostProductiveYear {
           yearCounter.put(yearToCheck, temp + 1);
         }
       }
-      System.out.println(yearCounter.toString());
+      String bestYear = "";
+      int value = 0;
       for (String key : yearCounter.keySet()) {
-          if (yearCounter.get(key) > ) {
+          if (yearCounter.get(key) > value ) {
             bestYear = key;
+            value = yearCounter.get(key);
         }
       }
       mostProductive = studioName + " has made the most movies in ";
