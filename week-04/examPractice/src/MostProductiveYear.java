@@ -1,6 +1,7 @@
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,52 +18,35 @@ public class MostProductiveYear {
 
   private static String mostProductiveYear(String studioName) {
     String mostProductive = "";
-    if (studioName.equals("marvel")) {
+    List<String> lines  = new ArrayList<>();
+    Map<String, Integer> yearCounter = new HashMap<>();
+    if (studioName.equals("marvel") || studioName.equals("paramount")) {
       try {
-        Path filePath = Paths.get("/home/kriszti/Documents/Greenfox/marvel.csv");
-        List<String> lines = Files.readAllLines(filePath);
-        mostProductive = "marvel has made the most movies in ";
+        Path filePath = Paths.get("/home/kriszti/Documents/Greenfox/" + studioName + ".csv");
+        lines = Files.readAllLines(filePath);
       } catch (Exception e) {
         System.out.println("Something went wrong");
       }
-    } else if (studioName.equals("paramount")) {
-      try {
-        Path filePath = Paths.get("/home/kriszti/Documents/Greenfox/paramount.csv");
-        List<String> lines = Files.readAllLines(filePath);
-        Map<String, Integer> yearCounter = new HashMap<>();
-
-        for (int i = 0; i < lines.size(); i++) {
-          String yearToCheck = lines.get(i).split(",")[1];
-          if (!yearCounter.containsKey(yearToCheck)) {
-            yearCounter.put(yearToCheck, 1);
-          } else {
-            Integer temp = yearCounter.get(yearToCheck);
-            yearCounter.put(yearToCheck, temp + 1);
-          }
+      for (int i = 0; i < lines.size(); i++) {
+        String yearToCheck = lines.get(i).split(",")[1];
+        if (!yearCounter.containsKey(yearToCheck)) {
+          yearCounter.put(yearToCheck, 1);
+        } else {
+          Integer temp = yearCounter.get(yearToCheck);
+          yearCounter.put(yearToCheck, temp + 1);
         }
-        String bestYear = "";
-        for (String key : yearCounter.keySet()) {
-          for (String keyTwo : yearCounter.keySet()) {
-            if (yearCounter.get(key) > yearCounter.get(keyTwo)) {
-              bestYear = key;
-            }
-          }
-        }
-        mostProductive = "paramount has made the most movies in ";
-        mostProductive.concat(bestYear);
-      } catch (Exception e) {
-        System.out.println("Something went wrong");
-
       }
+      System.out.println(yearCounter.toString());
+      for (String key : yearCounter.keySet()) {
+          if (yearCounter.get(key) > ) {
+            bestYear = key;
+        }
+      }
+      mostProductive = studioName + " has made the most movies in ";
+      mostProductive = mostProductive.concat(bestYear);
     } else {
       mostProductive = "Cannot find studio, please try again later.";
     }
     return mostProductive;
   }
 }
-//    * The method should try to open the related data file named `studioname`.csv,
-//    * which is a comma separated file with 3 columns: name of the movie, release year, director
-//    *
-//    *  - If we do not have any data about the studio, the method should return an error message.
-//    *  - If we have found data, the method should return an information message about the most productive year for that studio.
-
