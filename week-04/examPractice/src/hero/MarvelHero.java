@@ -15,7 +15,7 @@ public class MarvelHero extends Hero {
   @Override
   public void punch(Punchable other) {
     if (!universe.equals("Marvel")) {
-      if (motivation >= 1) {
+      if (getMotivationLevel() >= 1) {
         double damage = motivation / 1.5;
         bePunched(damage);
       } else {
