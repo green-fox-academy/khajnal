@@ -42,11 +42,11 @@ public class Hero extends BaseHero implements Punchable {
 
   public String toString() {
     String status = "";
-    if (motivation == 0) {
+    if (getMotivationLevel() == 0) {
       status = getName() + " is not motivated anymore.";
-    } else if (motivation == 1) {
+    } else if (getMotivationLevel() == 1) {
       status = getName() + " is motivated.";
-    } else if (motivation == 2) {
+    } else if (getMotivationLevel() == 2) {
       status = getName() + "is well motivated";
     }
     return status;

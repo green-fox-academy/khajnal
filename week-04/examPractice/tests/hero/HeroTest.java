@@ -23,7 +23,7 @@ public class HeroTest {
   }
 
   @Test
-  public void toStringTestWithZeroMotivation() {
+  public void toStringTestWithZeroMotivationLvL() {
     assertEquals("Cate is not motivated anymore.", cate.toString());
   }
 }
