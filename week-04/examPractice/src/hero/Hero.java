@@ -14,11 +14,9 @@ public class Hero extends BaseHero implements Punchable {
 
   @Override
   public void punch(Punchable other) {
-    if (motivation>= 1) {
+    if (getMotivationLevel()>= 1) {
       double damage = motivation / 1.5;
       bePunched(damage);
-    } else {
-      System.out.println("I am not motivated enough");
     }
   }
 
@@ -37,7 +35,7 @@ public class Hero extends BaseHero implements Punchable {
 
   @Override
   public void bePunched(double damage) {
-    motivation = motivation - (damage / motivation);
+    motivation -= damage / motivation;
   }
 
   public String toString() {
