@@ -20,6 +20,7 @@ public class MostProductiveYear {
     String mostProductive = "";
     List<String> lines  = new ArrayList<>();
     Map<String, Integer> yearCounter = new HashMap<>();
+    String bestYear = "";
     if (studioName.equals("marvel") || studioName.equals("paramount")) {
       try {
         Path filePath = Paths.get("/home/kriszti/Documents/Greenfox/" + studioName + ".csv");
@@ -36,7 +37,6 @@ public class MostProductiveYear {
           yearCounter.put(yearToCheck, temp + 1);
         }
       }
-      String bestYear = "";
       int value = 0;
       for (String key : yearCounter.keySet()) {
           if (yearCounter.get(key) > value ) {
