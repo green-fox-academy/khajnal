@@ -16,11 +16,15 @@ public class GuessMyNumber {
     int nrToGuess = getRandomNumber();
     Scanner scanner = new Scanner(System.in);
     int guess = 0;
+    System.out.println("I have a number between 1-100, please enter your guess.");
     while (guess != nrToGuess) {
-      System.out.println("I have a number between 1-100, please enter your guess.");
       guess = scanner.nextInt();
       if (guess < nrToGuess) {
-        
+        System.out.println("Too low.");
+      } else if (guess > nrToGuess) {
+        System.out.println("Too high");
+      } else if (nrToGuess == guess) {
+        System.out.println("You won!");
       }
     }
   }
