@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +13,8 @@ public class UniqueChars {
     // ["n", "g", "r", "m"]
   }
 
-  private static Map<String, Integer> characterCounter(String anagram) {
-    String[] splittedText = anagram.split("");
+  private static Map<String, Integer> characterCounter(String text) {
+    String[] splittedText = text.split("");
     Map<String, Integer> lettersCounted = new HashMap<>();
     for (int i = 0; i < splittedText.length; i++) {
       if (!lettersCounted.containsKey(splittedText[i])) {
@@ -23,5 +24,16 @@ public class UniqueChars {
       }
     }
     return lettersCounted;
+  }
+
+  private static List<String> uniqueCharacters(String text) {
+    Map<String, Integer> lettersCounted =  characterCounter(text);
+    List<String> uniqueLetters = new ArrayList<>();
+    for (String key : lettersCounted.keySet()) {
+      if (lettersCounted.get(key) == 1) {
+        uniqueLetters.add(key);
+      }
+    }
+    return uniqueLetters;
   }
 }
