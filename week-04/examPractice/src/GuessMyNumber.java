@@ -6,17 +6,18 @@ public class GuessMyNumber {
     play();
   }
 
-  private static int getRandomNumber() {
+  private static int getRandomNumber(int userInput) {
     Random random = new Random();
-    int randomNr = random.nextInt(100) + 1;
+    int randomNr = random.nextInt(userInput) + 1;
     return randomNr;
   }
 
   public static void play() {
-    int nrToGuess = getRandomNumber();
     Scanner scanner = new Scanner(System.in);
+    System.out.println("Please enter a number, I will think of a number between 1 and your number.");
+    int nrToGuess = getRandomNumber(scanner.nextInt());
     int guess = 0;
-    System.out.println("I have a number between 1-100, please enter your guess.");
+    System.out.println("Please enter your guess.");
     while (guess != nrToGuess) {
       guess = scanner.nextInt();
       if (guess < nrToGuess) {
