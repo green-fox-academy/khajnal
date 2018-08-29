@@ -1,6 +1,8 @@
 
 import java.util.*;
 
+import static java.lang.Integer.parseInt;
+
 public class StudentCounter{
   public static void main(String... args){
     ArrayList<Map<String, Object>> map = new ArrayList<Map<String, Object>>();
@@ -45,10 +47,11 @@ public class StudentCounter{
     //  - Who has got more candies than 4 candies
     //  - Sum the age of people who have lass than 5 candies
 
-    System.out.println(moreThanFourCandy(map));
+    System.out.println(moreThanFourCandyNames(map));
+    System.out.println(sumAgeLessThanFiveCandy(map));
   }
 
-  public static List<String> moreThanFourCandy(ArrayList<Map<String, Object>> map ) {
+  public static List<String> moreThanFourCandyNames(ArrayList<Map<String, Object>> map) {
     List<String> names = new ArrayList<>();
     for (int i = 0; i < map.size(); i++) {
       if ((int)map.get(i).get("candies") > 4) {
@@ -56,5 +59,16 @@ public class StudentCounter{
       }
     }
     return names;
+  }
+
+  public static Integer sumAgeLessThanFiveCandy(ArrayList<Map<String, Object>> map) {
+    Double sumAge = 0.;
+    for (int i = 0; i < map.size(); i++) {
+      if ((int)map.get(i).get("candies") < 5) {
+        sumAge += (Double)map.get(i).get("age");
+      }
+    }
+    String sumAgeString = sumAge.toString();
+    return parseInt(sumAgeString);
   }
 }
