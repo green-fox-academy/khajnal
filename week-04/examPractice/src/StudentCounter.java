@@ -61,14 +61,13 @@ public class StudentCounter{
     return names;
   }
 
-  public static Integer sumAgeLessThanFiveCandy(ArrayList<Map<String, Object>> map) {
+  public static Double sumAgeLessThanFiveCandy(ArrayList<Map<String, Object>> map) {
     Double sumAge = 0.;
     for (int i = 0; i < map.size(); i++) {
       if ((int)map.get(i).get("candies") < 5) {
-        sumAge += (Double)map.get(i).get("age");
+        sumAge += Double.valueOf(map.get(i).get("age").toString());
       }
     }
-    String sumAgeString = sumAge.toString();
-    return parseInt(sumAgeString);
+    return sumAge;
   }
 }
