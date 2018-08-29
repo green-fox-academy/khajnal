@@ -1,21 +1,31 @@
 public class ArmstrongNumber {
   public static void main(String[] args) {
-//    isArmstrongnumber(1634);
-//    isArmstrongnumber(1);
-//    isArmstrongnumber(800);
+//    isArmstrongNumber(1634);
+//    isArmstrongNumber(1);
+//    isArmstrongNumber(800);
     System.out.println(countDigits(1634));
     System.out.println(countDigits(1));
     System.out.println(countDigits(800));
   }
 
-  private static int countDigits(int number) {
+  public static String[] digitArray(int number) {
     String numberString = String.valueOf(number);
     String[] numberSplitted = numberString.split("");
+    return numberSplitted;
+  }
+
+  public static int countDigits(int number) {
+    String[] numberSplitted = digitArray(number);
     int nrOfDigits = 0;
     for (int i = 0; i < numberSplitted.length ; i++) {
       nrOfDigits += 1;
     }
     return nrOfDigits;
+  }
+
+  public static boolean isArmstrongNumber(int number) {
+    int nrOfDigits = countDigits(number);
+
   }
 }
 
