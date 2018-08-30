@@ -10,4 +10,12 @@ public class Flower extends Plants {
   public String getStatus() {
     return "The " + color + " Flower ";
   }
+
+  @Override
+  public boolean needsWater() {
+    if (waterLvl < 5) {
+      return true;
+    }
+    return false;
+  }
 }

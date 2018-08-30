@@ -10,4 +10,12 @@ public class Tree extends Plants{
   public String getStatus() {
     return "The " + color + " Tree ";
   }
+
+  @Override
+  public boolean needsWater() {
+    if (waterLvl < 10) {
+      return true;
+    }
+    return false;
+  }
 }

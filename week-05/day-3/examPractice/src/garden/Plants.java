@@ -6,7 +6,10 @@ public abstract class Plants {
 
   public Plants(String color) {
     this.color = color;
+    waterLvl = 0;
   }
 
   public abstract String getStatus();
+
+  public abstract boolean needsWater();
 }
