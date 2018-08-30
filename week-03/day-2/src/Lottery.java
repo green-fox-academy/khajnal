@@ -12,7 +12,7 @@ public class Lottery {
     List<String> lines = new ArrayList<>();
     Map<String, Integer> numbers = new HashMap<>();
     try {
-      Path path = Paths.get("text/lottery.csv");
+      Path path = Paths.get("lottery.csv");
       lines = Files.readAllLines(path);
     } catch (Exception e) {
       System.out.println("Cannot read the file");
