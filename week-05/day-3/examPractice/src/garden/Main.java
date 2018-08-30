@@ -1,7 +1,5 @@
 package garden;
 
-import java.util.Arrays;
-
 public class Main {
   public static void main(String[] args) {
     Garden myGarden = new Garden();
@@ -17,6 +15,6 @@ public class Main {
 
     System.out.println(myGarden.getGardenStatus());
     myGarden.waterTheGardenWithStatus(40);
-    myGarden.waterTheGardenWithStatus(70);
+//    myGarden.waterTheGardenWithStatus(70);
   }
 }

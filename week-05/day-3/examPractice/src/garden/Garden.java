@@ -13,7 +13,7 @@ public class Garden {
   public String getGardenStatus() {
     String status = "";
     for (Plants onePlant : garden) {
-      status += onePlant.getStatus() + "\n";
+      status += onePlant.getStatus(onePlant) + "\n";
       }
     return status;
   }
