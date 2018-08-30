@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,6 +21,12 @@ public class AnagramTest {
   @Test
   public void testIfAnagrams() {
     list.addTwoStringToAList("kutyakaja", "kajakutya");
-    assertEquals(true,list.ifAnagrams(list));
+    assertTrue(list.ifAnagrams());
+  }
+
+  @Test
+  public void testIfNotAnagrams() {
+    list.addTwoStringToAList("alma", "kutya");
+    assertFalse(list.ifAnagrams());
   }
 }
