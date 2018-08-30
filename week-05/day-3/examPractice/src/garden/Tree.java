@@ -1,8 +1,13 @@
 package garden;
 
 public class Tree extends Plants{
+
+  public Tree(String color) {
+    super(color);
+  }
+
   @Override
   public String getStatus() {
-    return null;
+    return "The " + color + " Tree ";
   }
 }
