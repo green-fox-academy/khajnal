@@ -4,11 +4,7 @@ public class Flower extends Plants {
 
   public Flower(String color) {
     super(color);
-  }
-
-  @Override
-  public String getStatus() {
-    return "The " + color + " Flower ";
+    super.type = "Flower";
   }
 
   @Override
@@ -17,5 +13,11 @@ public class Flower extends Plants {
       return true;
     }
     return false;
+  }
+
+  @Override
+  public void getWater(double waterForOne) {
+    double absorb = waterForOne * 0.75;
+    super.waterLvl += absorb;
   }
 }
