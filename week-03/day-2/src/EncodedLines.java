@@ -7,7 +7,7 @@ import java.util.List;
 
 public class EncodedLines {
   public static void main(String[] args) {
-    printContent("texts/encoded-lines.txt");
+    printContent("text/encoded-lines.txt");
   }
 
   public static List<String> readAllLines(String filename) {
