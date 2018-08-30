@@ -27,15 +27,15 @@ public class Garden {
   private void waterTheGarden(int water) {
     List<Plants> plantsNeedWater = listOfWaterNeedPlants();
     double waterForOne = water / plantsNeedWater.size();
-    for (Plants onePLant : plantsNeedWater) {
-      onePLant.getWater(waterForOne);
+    for (Plants onePlant : plantsNeedWater) {
+      onePlant.getWater(waterForOne);
     }
   }
 
   private List<Plants> listOfWaterNeedPlants() {
     List<Plants> plantsNeedWater = new ArrayList<>();
       for (Plants onePlant : garden) {
-        if (onePlant.needsWater() == true) {
+        if (onePlant.needsWater()) {
           plantsNeedWater.add(onePlant);
         }
       }
