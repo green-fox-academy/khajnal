@@ -6,10 +6,11 @@ import java.util.List;
 public class Garden {
   List<Plants> garden = new ArrayList<>();
 
-  public String getStatus() {
+  public String getGardenStatus() {
     String status = "";
     for (Plants onePlant : garden) {
-      if (onePlant instanceof Flower)
+      status += onePlant.getStatus + "\n";
+      }
     }
   }
   }
