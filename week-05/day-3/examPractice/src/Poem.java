@@ -10,6 +10,8 @@ public class Poem {
   public static void main(String[] args) {
     System.out.println(countFiveLenghtWord("texts/poem.txt"));
     System.out.println(countFiveLettersWithRegExpress("texts/poem.txt"));
+    System.out.println(listWordsWithAddedLenght("texts/poem.txt", 5));
+    System.out.println(listWordsWithAddedLenght("texts/poem.txt", 3));
   }
 
   public static List<String> readAllLines(String filename) {
@@ -23,30 +25,28 @@ public class Poem {
     return allLines;
   }
 
-  public static int countFiveLenghtWord(String filename) {
+  public static List<String> countFiveLenghtWord(String filename) {
     List<String> allLines = readAllLines(filename);
+    List<String> words = new ArrayList<>();
     int sum = 0;
     for (String oneLine : allLines) {
-      oneLine.replace(",", "");
-      oneLine.replace("?", "");
-      oneLine.replace(";", "");
-      oneLine.replace(".", "");
-      String[] splittedOneLine = oneLine.split(" ");
+      String modified;
+      modified = oneLine.replace(",", "");
+      modified = modified.replace("?", "");
+      modified = modified.replace(";", "");
+      modified = modified.replace(".", "");
+      String[] splittedOneLine = modified.split(" ");
       for (String oneWord : splittedOneLine) {
         if (oneWord.length() == 5) {
           sum++;
+          words.add(oneWord);
         }
       }
     }
-    return sum;
+    return words;
   }
 
-//  public static int countAWord(String filename, String word) {
-//    List<String> allLines = readAllLines(filename);
-//    int sum
-//  }
-
-  public static int countFiveLettersWithRegExpress(String filename){
+  public static int countFiveLettersWithRegExpress(String filename) {
     List<String> allLines = readAllLines(filename);
     Pattern pattern = Pattern.compile("\\b[a-zA-Z]{5}\\b");
     int sum = 0;
@@ -59,5 +59,24 @@ public class Poem {
     return sum;
   }
 
-  
+  public static List<String> listWordsWithAddedLenght(String filename, int lenght) {
+    List<String> allLines = readAllLines(filename);
+    List<String> words = new ArrayList<>();
+    int sum = 0;
+    for (String oneLine : allLines) {
+      String modified;
+      modified = oneLine.replace(",", "");
+      modified = modified.replace("?", "");
+      modified = modified.replace(";", "");
+      modified = modified.replace(".", "");
+      String[] splittedOneLine = modified.split(" ");
+      for (String oneWord : splittedOneLine) {
+        if (oneWord.length() == lenght) {
+          sum++;
+          words.add(oneWord);
+        }
+      }
+    }
+    return words;
+  }
 }
