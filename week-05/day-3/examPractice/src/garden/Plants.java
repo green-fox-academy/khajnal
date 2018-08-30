@@ -1,8 +1,5 @@
 package garden;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Plants {
   protected String type;
   protected int waterLvl;
