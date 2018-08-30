@@ -1,13 +1,13 @@
 package garden;
 
-public abstract class Plants {
+public abstract class Plant {
   protected String type;
   protected int waterLvl;
   protected String color;
   protected int capacity;
   protected double absorbLvl;
 
-  public Plants(String color, int capacity, double absorbLvl) {
+  public Plant(String color, int capacity, double absorbLvl) {
     this.color = color;
     this.capacity = capacity;
     this. absorbLvl = absorbLvl;
@@ -23,7 +23,7 @@ public abstract class Plants {
       waterLvl += absorb;
   }
 
-  public String getStatus(Plants plant) {
+  public String getStatus(Plant plant) {
     if (plant.needsWater()) {
       return "The " + color + type + " needs water.";
     }

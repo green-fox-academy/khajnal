@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Garden {
-  private List<Plants> garden = new ArrayList<>();
+  private List<Plant> garden = new ArrayList<>();
 
-  public void addPlant(Plants plant) {
+  public void addPlant(Plant plant) {
     garden.add(plant);
   }
 
   public String getGardenStatus() {
     String status = "";
-    for (Plants onePlant : garden) {
+    for (Plant onePlant : garden) {
       status += onePlant.getStatus(onePlant) + "\n";
       }
     return status;
@@ -25,16 +25,16 @@ public class Garden {
   }
 
   private void waterTheGarden(int water) {
-    List<Plants> plantsNeedWater = listOfWaterNeedPlants();
+    List<Plant> plantsNeedWater = listOfWaterNeedPlants();
     double waterForOne = water / plantsNeedWater.size();
-    for (Plants onePlant : plantsNeedWater) {
+    for (Plant onePlant : plantsNeedWater) {
       onePlant.getWater(waterForOne);
     }
   }
 
-  private List<Plants> listOfWaterNeedPlants() {
-    List<Plants> plantsNeedWater = new ArrayList<>();
-      for (Plants onePlant : garden) {
+  private List<Plant> listOfWaterNeedPlants() {
+    List<Plant> plantsNeedWater = new ArrayList<>();
+      for (Plant onePlant : garden) {
         if (onePlant.needsWater()) {
           plantsNeedWater.add(onePlant);
         }
