@@ -8,7 +8,6 @@ import java.util.List;
 public class EncodedLines {
   public static void main(String[] args) {
     printContent("texts/encoded-lines.txt");
-    Path destPath = Paths.ge
   }
 
   public static List<String> readAllLines(String filename) {
