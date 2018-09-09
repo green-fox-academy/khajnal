@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -60,5 +61,34 @@ public class StreamExample {
  */
     Random random2 = new Random();
     random2.ints().limit(10).sorted().forEach(System.out::println);
+
+/* Sixth example:
+ *parallelStream is the alternative of stream for parallel processing.
+ */
+    List<String> strings2 = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+    long count2 = strings.parallelStream().filter(string -> string.isEmpty()).count();
+    System.out.println(count2);
+
+/* Seventh example:
+ *Collectors can be used to return a list or a string.
+ */
+    List<String> strings3 = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+    List<String> filtered2 = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
+
+    System.out.println("Filtered List: " + filtered2);
+    String mergedString = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(", "));
+    System.out.println("Merged String: " + mergedString);
+
+// Eighth example:
+
+    List numbers2 = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
+
+    IntSummaryStatistics stats = numbers2.stream().mapToInt((i) -> (int) i).summaryStatistics();
+
+    System.out.println("Highest number in List : " + stats.getMax());
+    System.out.println("Lowest number in List : " + stats.getMin());
+    System.out.println("Sum of all numbers : " + stats.getSum());
+    System.out.println("Average of all numbers : " + stats.getAverage());
+
   }
 }
