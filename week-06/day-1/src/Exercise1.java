@@ -15,7 +15,7 @@ public class Exercise1 {
 
     numbers.stream()
       .filter(x -> x % 2 == 0)
-      .forEach(System.out :: println);
+      .forEach(System.out::println);
 
     System.out.println(evenNumbers(numbers));
   }

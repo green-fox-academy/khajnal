@@ -15,6 +15,18 @@ public class Exercise4 {
 
     numbers.stream()
       .filter(x -> x * x > 20)
-      .forEach(System.out :: println);
+      .forEach(System.out::println);
+
+    System.out.println(listedNumbersMethod(numbers));
+  }
+
+  public static List<Integer> listedNumbersMethod(ArrayList<Integer> example) {
+    List<Integer> listedNumbers = new ArrayList<>();
+    for (Integer oneElement : example) {
+      if (oneElement * oneElement > 20) {
+        listedNumbers.add(oneElement);
+      }
+    }
+    return listedNumbers;
   }
 }

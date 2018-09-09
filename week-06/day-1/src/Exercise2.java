@@ -32,10 +32,10 @@ public class Exercise2 {
     double sum = 0;
     int counter = 0;
     for (Integer oneElement : example) {
-     if (oneElement % 2 != 0) {
-       sum += oneElement;
-       counter++;
-     }
+      if (oneElement % 2 != 0) {
+        sum += oneElement;
+        counter++;
+      }
     }
     return sum / counter;
   }
