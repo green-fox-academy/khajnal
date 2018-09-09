@@ -1,7 +1,7 @@
 public class Fox {
-  String name;
-  String type;
-  String color;
+  private String name;
+  private String type;
+  private String color;
 
   Fox(String name, String type, String color) {
     this.name = name;
@@ -9,7 +9,7 @@ public class Fox {
     this.color = color;
   }
 
-  public String getcolor() {
+  public String getColor() {
     return color;
   }
 
