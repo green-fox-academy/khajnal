@@ -8,9 +8,10 @@ public class Exercise10 {
     List<Fox> foxes = new ArrayList<>(Arrays.asList(new Fox("bob", "fennec", "red"),
                                                     new Fox("bud", "red", "red"),
                                                     new Fox("bill", "marble", "white"),
-                                                    new Fox("bell", "pallinda", "green"),
-                                                    new Fox("becky", "pallinda", "orange"),
-                                                    new Fox("bobby", "pallinda", "green")));
+                                                    new Fox("bell", "pallida", "green"),
+                                                    new Fox("becky", "pallida", "orange"),
+                                                    new Fox("betty", "marble", "green"),
+                                                    new Fox("bobby", "pallida", "green")));
 
 //    List<Fox> greenFoxes = foxes.stream()
 //      .filter(fox -> fox.getcolor().equals("green"))
@@ -23,5 +24,13 @@ public class Exercise10 {
       .collect(Collectors.toList());
 
     System.out.println(greenFoxes);
+
+    List<String> greenFoxesWithPalindaType = foxes.stream()
+      .filter(fox -> fox.getcolor().equals("green"))
+      .filter(fox -> fox.getType().equals("pallida"))
+      .map(Fox::getName)
+      .collect(Collectors.toList());
+
+    System.out.println(greenFoxesWithPalindaType);
   }
 }
