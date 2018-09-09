@@ -16,5 +16,17 @@ public class Exercise1 {
     numbers.stream()
       .filter(x -> x % 2 == 0)
       .forEach(System.out :: println);
+
+    System.out.println(evenNumbers(numbers));
+  }
+
+  public static List<Integer> evenNumbers(List<Integer> example) {
+    List<Integer> evenNumbers = new ArrayList<>();
+    for (Integer oneElement : example) {
+      if (oneElement % 2 == 0) {
+        evenNumbers.add(oneElement);
+      }
+    }
+    return evenNumbers;
   }
 }

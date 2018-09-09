@@ -19,5 +19,17 @@ public class Exercise3 {
       .collect(Collectors.toList());
 
     System.out.println(squaredPositiveNumbers);
+
+    System.out.println(squaredPositiveNumbersMethod(numbers));
+  }
+
+  public static List<Integer> squaredPositiveNumbersMethod(ArrayList<Integer> example) {
+    List<Integer> squaredPositiveNumbers = new ArrayList<>();
+    for (Integer oneElement : example) {
+      if (oneElement > 0) {
+        squaredPositiveNumbers.add(oneElement * oneElement);
+      }
+    }
+    return squaredPositiveNumbers;
   }
 }

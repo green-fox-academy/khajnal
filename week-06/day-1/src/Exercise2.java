@@ -23,5 +23,20 @@ public class Exercise2 {
       .average().getAsDouble();
 
     System.out.println(oddNrsAverage2);
+
+    System.out.println(oddNumbersAverage(numbers));
+  }
+
+  public static double oddNumbersAverage(ArrayList<Integer> example) {
+    List<Integer> oddNrList = new ArrayList<>();
+    double sum = 0;
+    int counter = 0;
+    for (Integer oneElement : example) {
+     if (oneElement % 2 != 0) {
+       sum += oneElement;
+       counter++;
+     }
+    }
+    return sum / counter;
   }
 }
