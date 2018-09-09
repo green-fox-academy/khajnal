@@ -1,3 +1,5 @@
+package homework;
+
 public class Person {
   String firstName;
   String lastName;
