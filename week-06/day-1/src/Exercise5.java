@@ -19,6 +19,8 @@ public class Exercise5 {
       .collect(Collectors.joining(", "));
 
     System.out.println(mergedString);
+
+    System.out.println(upperCaseLettersMethod(poem));
   }
 
   public static List<Character> upperCaseLettersMethod(String example) {
