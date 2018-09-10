@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -7,7 +8,7 @@ public class Exercise9 {
 
     String mergedCharArray = Stream.of(charArray)
       .map(String::valueOf)
-      .collect(Collectors.joining(", "));
+      .collect(Collectors.joining());
     System.out.println(mergedCharArray);
 
     System.out.println(mergedCharArrayMethod(charArray));
@@ -15,11 +16,6 @@ public class Exercise9 {
 
     String result = new String(charArray);
     System.out.println(result);
-
-    String mergedCharArraySecond = Stream.of(charArray)
-      .map(String::valueOf)
-      .collect(Collectors.joining(", "));
-    System.out.println(mergedCharArraySecond);
   }
 
   public static String mergedCharArrayMethod(char[] example) {
