@@ -15,16 +15,10 @@ public class Exercise10 {
       new Fox("bobby", "pallida", "green"))
     );
 
-//    List<Fox> greenFoxes = foxes.stream()
-//      .filter(fox -> fox.getcolor().equals("green"))
-//      .collect(Collectors.toList());
-//    System.out.println(greenFoxes);
-
     List<String> greenFoxes = foxes.stream()
       .filter(fox -> fox.getColor().equals("green"))
       .map(Fox::getName)
       .collect(Collectors.toList());
-
     System.out.println(greenFoxes);
 
     List<String> greenFoxesWithPallidaType = foxes.stream()
@@ -32,11 +26,11 @@ public class Exercise10 {
       .filter(fox -> fox.getType().equals("pallida"))
       .map(Fox::getName)
       .collect(Collectors.toList());
-
     System.out.println(greenFoxesWithPallidaType);
 
     System.out.println(greenFoxMethod(foxes));
     System.out.println(greenFoxWithPallindaTypeMethod(foxes));
+    System.out.println(greenFoxWithPallindaTypeMethodOtherSolution(foxes));
   }
 
   public static List<String> greenFoxMethod(List<Fox> foxes) {
@@ -57,5 +51,12 @@ public class Exercise10 {
       }
     }
     return greenFoxes;
+  }
+
+  public static List<String> greenFoxWithPallindaTypeMethodOtherSolution(List<Fox> foxes) {
+    return foxes.parallelStream()
+      .filter(fox -> fox.getType().equals("pallida") && fox.getColor().equals("green"))
+      .map(fox -> fox.getName())
+      .collect(Collectors.toList());
   }
 }
