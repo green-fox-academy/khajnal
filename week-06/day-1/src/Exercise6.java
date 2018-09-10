@@ -14,6 +14,7 @@ public class Exercise6 {
     System.out.println(filteredCities);
 
     System.out.println(filteredCitiesMethod(cities));
+    System.out.println(filteredCitiesMethodOtherSolution(cities));
   }
 
   public static List<String> filteredCitiesMethod(ArrayList<String> example) {
@@ -24,5 +25,11 @@ public class Exercise6 {
       }
     }
     return filteredCities;
+  }
+
+  public static List<String> filteredCitiesMethodOtherSolution(ArrayList<String> example) {
+    return example.parallelStream()
+      .filter(x -> x.startsWith("A") && x.endsWith("I"))
+      .collect(Collectors.toList());
   }
 }

@@ -21,6 +21,7 @@ public class Exercise5 {
     System.out.println(mergedString);
 
     System.out.println(upperCaseLettersMethod(poem));
+    System.out.println(upperCaseLettersMethodOtherSolution(poem));
   }
 
   public static List<Character> upperCaseLettersMethod(String example) {
@@ -31,5 +32,12 @@ public class Exercise5 {
       }
     }
     return upperCaseLetters;
+  }
+
+  public static List<Character> upperCaseLettersMethodOtherSolution(String example) {
+    return example.chars()
+      .filter(Character::isUpperCase)
+      .mapToObj(c -> (char) c)
+      .collect(Collectors.toList());
   }
 }
