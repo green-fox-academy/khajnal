@@ -10,7 +10,6 @@ public class Exercise4 {
     List<Integer> listedNumbers = numbers.stream()
       .filter(x -> x * x > 20)
       .collect(Collectors.toList());
-
     System.out.println(listedNumbers);
 
     numbers.stream()
@@ -18,6 +17,7 @@ public class Exercise4 {
       .forEach(System.out::println);
 
     System.out.println(listedNumbersMethod(numbers));
+    System.out.println(listedNumbersMethodOtherSolution(numbers));
   }
 
   public static List<Integer> listedNumbersMethod(ArrayList<Integer> example) {
@@ -28,5 +28,11 @@ public class Exercise4 {
       }
     }
     return listedNumbers;
+  }
+
+  public static List<Integer> listedNumbersMethodOtherSolution(ArrayList<Integer> example) {
+    return example.parallelStream()
+      .filter(x -> x * x > 20)
+      .collect(Collectors.toList());
   }
 }
