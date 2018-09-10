@@ -16,6 +16,11 @@ public class Exercise1 {
       .filter(x -> x % 2 == 0)
       .forEach(System.out::println);
 
+    System.out.println("With parallelStream: ");
+    numbers.parallelStream()
+      .filter(x -> x % 2 == 0)
+      .forEach(System.out::println);
+
     System.out.println(evenNumbers(numbers));
     System.out.println(evenNumbersOtherSolution(numbers));
   }

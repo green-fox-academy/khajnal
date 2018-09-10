@@ -10,17 +10,16 @@ public class Exercise3 {
     List<Integer> positiveNumbers = numbers.stream()
       .filter(x -> x > 0)
       .collect(Collectors.toList());
-
     System.out.println(positiveNumbers);
 
     List<Integer> squaredPositiveNumbers = numbers.stream()
       .filter(x -> x > 0)
       .map(x -> x * x)
       .collect(Collectors.toList());
-
     System.out.println(squaredPositiveNumbers);
 
     System.out.println(squaredPositiveNumbersMethod(numbers));
+    System.out.println(squaredPositiveNumbersMethodOtherSolution(numbers));
   }
 
   public static List<Integer> squaredPositiveNumbersMethod(ArrayList<Integer> example) {
@@ -31,5 +30,12 @@ public class Exercise3 {
       }
     }
     return squaredPositiveNumbers;
+  }
+
+  public static List<Integer> squaredPositiveNumbersMethodOtherSolution(ArrayList<Integer> example) {
+    return example.stream()
+      .filter(x -> x > 0)
+      .map(x -> x * x)
+      .collect(Collectors.toList());
   }
 }
