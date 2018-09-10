@@ -13,18 +13,19 @@ public class Exercise2 {
 
     double oddNrsAverage = oddNrs.stream()
       .mapToInt(x -> x)
-      .average().getAsDouble();
-
+      .average()
+      .getAsDouble();
     System.out.println(oddNrsAverage);
 
     double oddNrsAverage2 = numbers.stream()
       .filter(x -> x % 2 != 0)
       .mapToInt(x -> x)
-      .average().getAsDouble();
-
+      .average()
+      .getAsDouble();
     System.out.println(oddNrsAverage2);
 
     System.out.println(oddNumbersAverage(numbers));
+    System.out.println(oddNumbersAverageOtherSolution(numbers));
   }
 
   public static double oddNumbersAverage(ArrayList<Integer> example) {
@@ -38,5 +39,13 @@ public class Exercise2 {
       }
     }
     return sum / counter;
+  }
+
+  public static double oddNumbersAverageOtherSolution(ArrayList<Integer> example) {
+    return example.stream()
+      .mapToInt(x -> x)
+      .filter(x -> x % 2 != 0)
+      .average()
+      .getAsDouble();
   }
 }

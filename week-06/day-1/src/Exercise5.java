@@ -8,14 +8,14 @@ public class Exercise5 {
 
     List<Character> upperCaseLetters = poem.chars()
       .filter(Character::isUpperCase)
-      .mapToObj(Character -> (char) Character)
+      .mapToObj(c -> (char) c)
       .collect(Collectors.toList());
 
     System.out.println(upperCaseLetters);
 
     String mergedString = poem.chars()
       .filter(Character::isUpperCase)
-      .mapToObj(Character -> String.valueOf((char) Character))
+      .mapToObj(c -> String.valueOf((char) c))
       .collect(Collectors.joining(", "));
 
     System.out.println(mergedString);

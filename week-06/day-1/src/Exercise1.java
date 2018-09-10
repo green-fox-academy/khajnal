@@ -10,7 +10,6 @@ public class Exercise1 {
     List<Integer> evenNumbers = numbers.stream()
       .filter(x -> x % 2 == 0)
       .collect(Collectors.toList());
-
     System.out.println(evenNumbers);
 
     numbers.stream()
@@ -18,6 +17,7 @@ public class Exercise1 {
       .forEach(System.out::println);
 
     System.out.println(evenNumbers(numbers));
+    System.out.println(evenNumbersOtherSolution(numbers));
   }
 
   public static List<Integer> evenNumbers(List<Integer> example) {
@@ -28,5 +28,11 @@ public class Exercise1 {
       }
     }
     return evenNumbers;
+  }
+
+  public static List<Integer> evenNumbersOtherSolution(List<Integer> example) {
+    return example.stream()
+      .filter(n -> n % 2 != 0)
+      .collect(Collectors.toList());
   }
 }
