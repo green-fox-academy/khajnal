@@ -8,10 +8,13 @@ public class Exercise9 {
     String mergedCharArray = Arrays.asList(charArray).stream()
       .map(x -> String.valueOf(x))
       .collect(Collectors.joining());
-
     System.out.println(mergedCharArray);
 
     System.out.println(mergedCharArrayMethod(charArray));
+    System.out.println(mergedCharArrayMethodOtherSolution(charArray));
+
+    String result = new String(charArray);
+    System.out.println(result);
   }
 
   public static String mergedCharArrayMethod(char[] example) {
@@ -20,5 +23,11 @@ public class Exercise9 {
       mergedCharArray += oneChar;
     }
     return mergedCharArray;
+  }
+
+  public static String mergedCharArrayMethodOtherSolution(char[] example) {
+    return Arrays.asList(example).stream()
+      .map(x -> String.valueOf(x))
+      .collect(Collectors.joining(", "));
   }
 }
