@@ -8,6 +8,7 @@ form {
   margin: auto;
   text-align: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 20px;
 }
 
 #title {
@@ -15,8 +16,10 @@ form {
   text-align: center;
 }
 
-div {
-  vertical-align: bottom;
+label {
+  display: block;
+  padding: 10px;
+  font-size: 10px;
 }
 
 button {
@@ -29,7 +32,7 @@ button {
   border-radius: 30px;
 }
 
-#forgotten{
+#forgotten {
   font-size: 10px;
   text-align: right;
 }
