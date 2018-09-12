@@ -8,17 +8,29 @@ form {
   margin: auto;
   text-align: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding: 20px;
+  padding: 50px;
+  padding-top: 30px;
+}
+
+input {
+  border-radius: 5px;
+  width: 290px;
+  height: 20px;
+}
+#password {
+  background: url(eye.jpg) no-repeat;
+  background-position: 270px;
+  background-size: 15px;
 }
 
 #title {
   font-size: 25px;
-  text-align: center;
 }
 
 label {
   display: block;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 10px;
 }
 
