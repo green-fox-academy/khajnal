@@ -1,7 +1,5 @@
 body{
 background-color: lavenderblush;
-width: 600px;
-padding: 150px;
 }
 
 table {
@@ -11,6 +9,7 @@ table {
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: left;
 	vertical-align: middle;
+	margin: auto;
 }
 
 td,th {
