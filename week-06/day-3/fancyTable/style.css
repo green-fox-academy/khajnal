@@ -1,3 +1,9 @@
+body{
+background-color: lavenderblush;
+width: 600px;
+padding: 150px;
+}
+
 table {
   width: 300px;
 	border-collapse: collapse;
@@ -6,15 +12,17 @@ table {
 	text-align: left;
 	vertical-align: middle;
 }
+
 td,th {
-  border: 2px solid black;
+  border: 2px solid gray;
 	height: 30px;
 	padding-left: 10px;
 }
 
 th {
-	background-color:black;
 	color: white;
+	background-color: black;
+	border-bottom: 4px;
 }
 
 tr:nth-child(odd) {
