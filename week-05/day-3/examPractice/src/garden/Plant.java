@@ -2,31 +2,32 @@ package garden;
 
 public abstract class Plant {
   protected String type;
-  protected int waterLvl;
-  protected String color;
-  protected int capacity;
-  protected double absorbLvl;
+  private int waterLevel;
+  private String color;
+  private int waterCapacity;
+  private double waterAbsorbCapacity;
 
-  public Plant(String color, int capacity, double absorbLvl) {
+
+  public Plant(String color, int waterCapacity, double waterAbsorbCapacity) {
     this.color = color;
-    this.capacity = capacity;
-    this. absorbLvl = absorbLvl;
-    waterLvl = 0;
+    this.waterCapacity = waterCapacity;
+    this.waterAbsorbCapacity = waterAbsorbCapacity;
+    waterLevel = 0;
   }
 
   public boolean needsWater() {
-      return waterLvl < absorbLvl;
+    return waterLevel < waterCapacity;
   }
 
   public void getWater(double waterForOne) {
-      double absorb = waterForOne * absorbLvl;
-      waterLvl += absorb;
+    double absorb = waterForOne * waterAbsorbCapacity;
+    waterLevel += absorb;
   }
 
   public String getStatus(Plant plant) {
     if (plant.needsWater()) {
-      return "The " + color + type + " needs water.";
+      return String.format("The %s %s needs water.", color, type);
     }
-    return "The " + color + type + " doesn't need water.";
+    return String.format("The %s %s doesn't need water.", color, type);
   }
 }

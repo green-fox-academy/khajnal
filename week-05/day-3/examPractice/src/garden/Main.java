@@ -16,5 +16,8 @@ public class Main {
     System.out.println(myGarden.getGardenStatus());
     myGarden.waterTheGardenWithStatus(40);
     myGarden.waterTheGardenWithStatus(70);
+    myGarden.waterTheGardenWithStatus(70);
+    myGarden.waterTheGardenWithStatus(70);
+    myGarden.waterTheGardenWithStatus(70);
   }
 }

@@ -2,6 +2,7 @@ package garden;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Garden {
   private List<Plant> garden = new ArrayList<>();
@@ -26,19 +27,17 @@ public class Garden {
 
   private void waterTheGarden(int water) {
     List<Plant> plantsNeedWater = listOfWaterNeedPlants();
-    double waterForOne = water / plantsNeedWater.size();
-    for (Plant onePlant : plantsNeedWater) {
-      onePlant.getWater(waterForOne);
+    if (plantsNeedWater.size() == 0) {
+      return;
     }
+    double waterForOne = water / plantsNeedWater.size();
+    plantsNeedWater.parallelStream()
+      .forEach(plant -> plant.getWater(waterForOne));
   }
 
   private List<Plant> listOfWaterNeedPlants() {
-    List<Plant> plantsNeedWater = new ArrayList<>();
-      for (Plant onePlant : garden) {
-        if (onePlant.needsWater()) {
-          plantsNeedWater.add(onePlant);
-        }
-      }
-    return plantsNeedWater;
+    return garden.parallelStream()
+      .filter(plant -> plant.needsWater())
+      .collect(Collectors.toList());
   }
 }
