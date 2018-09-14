@@ -15,7 +15,7 @@ public class Garden {
     String status = "";
     for (Plant onePlant : garden) {
       status += onePlant.getStatus(onePlant) + "\n";
-      }
+    }
     return status;
   }
 
@@ -32,7 +32,7 @@ public class Garden {
     }
     double waterForOne = water / plantsNeedWater.size();
     plantsNeedWater.stream()
-      .forEach(plant->plant.getWater(waterForOne));
+      .forEach(plant -> plant.getWater(waterForOne));
   }
 
   private List<Plant> listOfWaterNeedPlants() {
