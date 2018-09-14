@@ -37,7 +37,7 @@ public class Garden {
 
   private List<Plant> listOfWaterNeedPlants() {
     return garden.parallelStream()
-      .filter(plant -> plant.needsWater())
+      .filter(Plant::needsWater)
       .collect(Collectors.toList());
   }
 }
