@@ -31,8 +31,8 @@ public class Garden {
       return;
     }
     double waterForOne = water / plantsNeedWater.size();
-    plantsNeedWater.parallelStream()
-      .forEach(plant -> plant.getWater(waterForOne));
+    plantsNeedWater.stream()
+      .forEach(plant->plant.getWater(waterForOne));
   }
 
   private List<Plant> listOfWaterNeedPlants() {
