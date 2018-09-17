@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 @RestController
 public class HelloRESTController {
 
@@ -17,7 +19,7 @@ public class HelloRESTController {
 
   @RequestMapping("/greeting")
   public Greeting greeting(@RequestParam(value = "name", required = true) String content){
-    Greeting greeting = new Greeting(1, "Hello, " + content);
+    Greeting greeting = new Greeting("Hello, " + content);
     return greeting;
   }
 }
