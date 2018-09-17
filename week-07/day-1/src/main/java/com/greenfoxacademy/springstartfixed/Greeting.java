@@ -1,8 +1,8 @@
 package com.greenfoxacademy.springstartfixed;
 
 public class Greeting {
-  long id;
-  String content;
+  private long id;
+  private String content;
 
   public long getId() {
     return id;
