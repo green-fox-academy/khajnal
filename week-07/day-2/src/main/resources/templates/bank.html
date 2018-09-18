@@ -22,7 +22,10 @@
     <td th:text="${oneAccount.name}"></td>
     <td th:text="${#numbers.formatDecimal(oneAccount.balance, 0, 'COMMA', 2, 'POINT') + ' zebra'}"></td>
     <td th:text="${oneAccount.animalType}"></td>
-    <td th:text="${oneAccount.isKing}"></td>
+    <div th:switch="${oneAccount.isKing}">
+      <td th:case="true" style="color: blueviolet">YEAH</td>
+      <td th:case="false"style="color: darkred">NOPE</td>
+    </div>
   </tr>
   </tbody>
 </table>
