@@ -11,9 +11,7 @@ public class BankAccountController {
 
   @GetMapping("/show")
   public String greeting(Model model) {
-    model.addAttribute("name", bankAccount.getName());
-    model.addAttribute("balance", bankAccount.getBalance());
-    model.addAttribute("animalType", bankAccount.getAnimalType());
+    model.addAttribute("bankAccount", bankAccount);
     return "bankaccount";
   }
 }
