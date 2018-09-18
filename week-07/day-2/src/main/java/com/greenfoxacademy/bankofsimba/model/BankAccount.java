@@ -20,8 +20,8 @@ public class BankAccount {
     return name;
   }
 
-  public String getBalance() {
-    return String.format("%.2f", balance) + " Zebra";
+  public double getBalance() {
+    return balance;
   }
 
   public String getAnimalType() {
