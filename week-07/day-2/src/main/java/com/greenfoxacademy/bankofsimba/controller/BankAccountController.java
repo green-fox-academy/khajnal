@@ -5,19 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class BankAccountController {
-  List<BankAccount> allAccounts = new ArrayList<>();
-  BankAccount bankAccountZazu = new BankAccount("Zazu", 5000, "bird");
-  BankAccount bankAccountMufasa = new BankAccount("Mufasa", 4000, "lion");
-  BankAccount bankAccountTimon = new BankAccount("Timon", 3000, "meerkat");
+
   BankAccount bankAccountSimba = new BankAccount("Simba", 2000, "lion");
-
-
-
 
   @GetMapping("/show")
   public String greeting(Model model) {
@@ -32,7 +23,4 @@ public class BankAccountController {
     model.addAttribute("bankAccount", bankAccountSimba);
     return "bankaccount";
   }
-
-//  @GetMapping("/showAll")
-//  }
 }

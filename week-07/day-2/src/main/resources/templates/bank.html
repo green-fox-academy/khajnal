@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>All Bank Accounts</title>
+  <title>Bank</title>
   <link rel="stylesheet" th:href="@{/style.css}"/>
   <meta charset="utf-8"/>
 </head>
 <body>
+<h1>All Bank accounts</h1>
 <table>
   <thead>
   <tr>
@@ -15,10 +16,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td th:text="${bankAccount.getName()}"></td>
+  <tr th:each="oneAccount : ${allAccounts}">
+    <td th:text="${oneAccount.name}"></td>
+    <td th:text="${#numbers.formatDecimal(oneAccount.balance, 0, 'COMMA', 2, 'POINT') + ' zebra'}"></td>
+    <td th:text="${oneAccount.animalType}"></td>
   </tr>
   </tbody>
 </table>
 </body>
-</html>

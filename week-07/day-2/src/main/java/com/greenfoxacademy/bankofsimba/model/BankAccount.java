@@ -1,7 +1,5 @@
 package com.greenfoxacademy.bankofsimba.model;
 
-import java.text.DecimalFormat;
-
 public class BankAccount {
   private String name;
   private double balance;
