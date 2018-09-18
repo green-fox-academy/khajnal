@@ -8,10 +8,10 @@ public class Bank {
 
   public Bank() {
     allBankAccounts = new ArrayList<>();
-    allBankAccounts.add(new BankAccount("Zazu", 5000, "bird", false));
-    allBankAccounts.add(new BankAccount("Simba", 2000, "lion", true));
-    allBankAccounts.add(new BankAccount("Mufasa", 4000, "lion", false));
-    allBankAccounts.add(new BankAccount("Timon", 3000, "meerkat",false));
+    allBankAccounts.add(new BankAccount("Zazu", 5000, "bird", false, true));
+    allBankAccounts.add(new BankAccount("Simba", 2000, "lion", true, true));
+    allBankAccounts.add(new BankAccount("Mufasa", 4000, "lion", true, false));
+    allBankAccounts.add(new BankAccount("Timon", 3000, "meerkat",false, true));
   }
 
   public Bank(List<BankAccount> allBankAccounts) {

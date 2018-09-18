@@ -14,6 +14,7 @@
     <th>Balance</th>
     <th>Animal Type</th>
     <th>King</th>
+    <th>Good or Bad</th>
   </tr>
   </thead>
   <tbody>
@@ -24,8 +25,9 @@
     <td th:text="${oneAccount.animalType}"></td>
     <div th:switch="${oneAccount.isKing}">
       <td th:case="true" style="color: blueviolet">YEAH</td>
-      <td th:case="false"style="color: darkred">NOPE</td>
+      <td th:case="false" style="color: darkred">NOPE</td>
     </div>
+    <td th:text="${oneAccount.isGoodContent()}"></td>
   </tr>
   </tbody>
 </table>

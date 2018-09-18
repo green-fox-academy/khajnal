@@ -5,15 +5,17 @@ public class BankAccount {
   private double balance;
   private String animalType;
   private boolean isKing = false;
+  private boolean isGood = true;
 
   public BankAccount() {
   }
 
-  public BankAccount(String name, double balance, String animalType, boolean isKing) {
+  public BankAccount(String name, double balance, String animalType, boolean isKing, boolean isGood) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
     this.isKing = isKing;
+    this.isGood = isGood;
   }
 
   public String getName() {
@@ -42,5 +44,17 @@ public class BankAccount {
 
   public boolean getIsKing() {
     return isKing;
+  }
+
+  private boolean getIsGood() {
+    return isGood;
+  }
+
+  public String isGoodContent() {
+    if (getIsGood()) {
+      return "Good one";
+    } else {
+      return "Bad one";
+    }
   }
 }
