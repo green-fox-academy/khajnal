@@ -14,4 +14,12 @@ public class BankAccountController {
     model.addAttribute("bankAccount", bankAccount);
     return "bankaccount";
   }
+
+  @GetMapping("/html")
+  public String html(Model model) {
+    String message = "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>";
+    model.addAttribute("html", message);
+    model.addAttribute("bankAccount", bankAccount);
+    return "bankaccount";
+  }
 }
