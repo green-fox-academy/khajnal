@@ -7,8 +7,8 @@
 </head>
 <body>
 <div th:switch="${isValid}">
-  <p th:case="true" style="color: green" th:text ="${emailAddress} + ' valid email address'"></p>
-  <p th:case="false" style="color: red" th:text ="${emailAddress} + ' not valid email address'"></p>
+  <p th:case="true" style="color: green" th:text="${emailAddress} + ' valid email address'"></p>
+  <p th:case="false" style="color: red" th:text="${emailAddress} + ' not valid email address'"></p>
 </div>
 </body>
 </html>

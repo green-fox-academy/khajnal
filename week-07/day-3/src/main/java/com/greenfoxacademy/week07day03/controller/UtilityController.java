@@ -40,9 +40,15 @@ public class UtilityController {
     return "email";
   }
 
-  @GetMapping("/useful/{text}/{number}")
-  public String email(@PathVariable(value = "text") String text, @PathVariable(value = "number") int number, Model model) {
-    model.addAttribute("text",utility.caesar(text, number));
+  @GetMapping("/useful/encode/{text}/{number}")
+  public String encodeText(@PathVariable(value = "text") String text, @PathVariable(value = "number") int number, Model model) {
+    model.addAttribute("text", utility.caesar(text, number));
+    return "caesar";
+  }
+
+  @GetMapping("/useful/decode/{text}/{number}")
+  public String decodeText(@PathVariable(value = "text") String text, @PathVariable(value = "number") int number, Model model) {
+    model.addAttribute("text", utility.caesar(text, -number));
     return "caesar";
   }
 }
