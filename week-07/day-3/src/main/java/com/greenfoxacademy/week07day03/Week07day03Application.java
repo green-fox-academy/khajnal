@@ -1,5 +1,6 @@
 package com.greenfoxacademy.week07day03;
 
+import com.greenfoxacademy.week07day03.service.MyColor;
 import com.greenfoxacademy.week07day03.service.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,6 +12,9 @@ public class Week07day03Application implements CommandLineRunner {
 
 @Autowired
 Printer printer;
+@Autowired
+MyColor myColor;
+
   public static void main(String[] args) {
     SpringApplication.run(Week07day03Application.class, args);
   }
@@ -18,5 +22,6 @@ Printer printer;
   @Override
   public void run(String... args) throws Exception {
     printer.log("hello");
+    printer.log(myColor.printColor());
   }
 }
