@@ -11,7 +11,7 @@ public class Bank {
     allBankAccounts.add(new BankAccount("Zazu", 5000, "bird", false, true));
     allBankAccounts.add(new BankAccount("Simba", 2000, "lion", true, true));
     allBankAccounts.add(new BankAccount("Mufasa", 4000, "lion", true, false));
-    allBankAccounts.add(new BankAccount("Timon", 3000, "meerkat",false, true));
+    allBankAccounts.add(new BankAccount("Timon", 3000, "meerkat", false, true));
   }
 
   public Bank(List<BankAccount> allBankAccounts) {
