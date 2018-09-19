@@ -1,4 +1,4 @@
-package com.greenfoxacademy.hellobeanworld;
+package com.greenfoxacademy.week07day03;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HellobeanworldApplicationTests {
+public class Week07day03ApplicationTests {
 
   @Test
   public void contextLoads() {
