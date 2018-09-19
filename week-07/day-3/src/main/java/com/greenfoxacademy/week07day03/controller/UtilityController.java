@@ -20,8 +20,14 @@ public class UtilityController {
   }
 
   @GetMapping("/useful/{color}")
-  public String getSpecificColor(@PathVariable(value = "color") String color, Model model) {
+  public String coloredPage(@PathVariable(value = "color") String color, Model model) {
     model.addAttribute("color", color);
+    return "background";
+  }
+
+  @GetMapping("/useful/colored")
+  public String randomColoredPage (Model model) {
+    model.addAttribute("color", utility.randomColor());
     return "background";
   }
 }
