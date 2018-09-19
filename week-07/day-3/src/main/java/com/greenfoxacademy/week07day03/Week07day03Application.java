@@ -13,11 +13,11 @@ public class Week07day03Application implements CommandLineRunner {
   MyColor myColor;
 
 
-@Autowired
-public Week07day03Application(Printer printer, MyColor myColor) {
-  this.printer = printer;
-  this. myColor = myColor;
-}
+  @Autowired
+  public Week07day03Application(Printer printer, MyColor myColor) {
+    this.printer = printer;
+    this.myColor = myColor;
+  }
 
   public static void main(String[] args) {
     SpringApplication.run(Week07day03Application.class, args);

@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Useful</title>
+  <title>Utilities</title>
   <link rel="stylesheet" th:href="@{/style.css}"/>
   <meta charset="utf-8"/>
 </head>
 <body>
-
+<h1>All colors</h1>
+<table>
+  <tbody>
+  <tr th:each="color : ${colors}">
+    <td>
+      <a th:href="'/useful/' + *{color}" th:text="*{color}"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
 </body>
-</html>
