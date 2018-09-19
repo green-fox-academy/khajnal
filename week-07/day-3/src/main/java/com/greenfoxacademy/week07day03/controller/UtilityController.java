@@ -17,6 +17,7 @@ public class UtilityController {
   @GetMapping("/useful")
   public String useful(Model model) {
     model.addAttribute("colors", utility.getUtilities());
+    model.addAttribute("emailValid", "is@this.valid");
     return "useful";
   }
 
@@ -37,5 +38,11 @@ public class UtilityController {
     model.addAttribute("emailAddress", email);
     model.addAttribute("isValid", utility.isValidEmail(email));
     return "email";
+  }
+
+  @GetMapping("/useful/{text}/{number}")
+  public String email(@PathVariable(value = "text") String text, @PathVariable(value = "number") int number, Model model) {
+    model.addAttribute("text",utility.caesar(text, number));
+    return "caesar";
   }
 }
