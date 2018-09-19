@@ -9,11 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Week07day03Application implements CommandLineRunner {
+  Printer printer;
+  MyColor myColor;
+
 
 @Autowired
-Printer printer;
-@Autowired
-MyColor myColor;
+public Week07day03Application(Printer printer, MyColor myColor) {
+  this.printer = printer;
+  this. myColor = myColor;
+}
 
   public static void main(String[] args) {
     SpringApplication.run(Week07day03Application.class, args);
