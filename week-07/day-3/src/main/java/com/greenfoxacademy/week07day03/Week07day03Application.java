@@ -12,7 +12,6 @@ public class Week07day03Application implements CommandLineRunner {
   Printer printer;
   MyColor myColor;
 
-
   @Autowired
   public Week07day03Application(Printer printer, MyColor myColor) {
     this.printer = printer;

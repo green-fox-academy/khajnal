@@ -27,4 +27,10 @@ public class Utility {
   public ArrayList<String> getUtilities() {
     return colors;
   }
+
+  public boolean isValidEmail(String email) {
+    if (email.contains("@") && email.contains("."))
+      return true;
+    return false;
+  }
 }

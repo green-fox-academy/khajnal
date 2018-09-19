@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UtilityController {
@@ -26,8 +27,15 @@ public class UtilityController {
   }
 
   @GetMapping("/useful/colored")
-  public String randomColoredPage (Model model) {
+  public String randomColoredPage(Model model) {
     model.addAttribute("color", utility.randomColor());
     return "background";
+  }
+
+  @GetMapping("/useful/email")
+  public String email(@RequestParam(value = "email") String email, Model model) {
+    model.addAttribute("emailAddress", email);
+    model.addAttribute("isValid", utility.isValidEmail(email));
+    return "email";
   }
 }

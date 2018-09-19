@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Colored</title>
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+  <meta charset="utf-8"/>
+</head>
+<body>
+<div th:switch="${isValid}">
+  <p th:case="true" style="color: green"> This is valid</p>
+  <p th:case="false" style="color: red"> This is NOT valid</p>
+</div>
+</body>
+</html>
