@@ -5,21 +5,22 @@
   <link rel="stylesheet" th:href="@{/style.css}"/>
   <meta charset="utf-8"/>
 </head>
+<body>
 <ul>
-  <li>
-    <a href=information.html>Information</a>
-  </li>
+  <li><a href=index.html>Information</a></li>
+  <li><a th:href="@{'/nutritionStore?name=' + ${fox.getName()}}">Nutrition Store</a></li>
+  <li><a th:href="@{'/actionHistory?name=' + ${fox.getName()}}">Action History</a></li>
 </ul>
-<img src="greenfox.png" alt="A green fox">
-<p th:text="'This is ' + ${nameOfFox} + '. Currently living on pizza and lemonade. He knows 2 tricks.'"></p>
-<h1>Known tricks</h1>
-<ul>
-  <li>
-    <p>Write HTML</p>
-  </li>
-  <li>
-    <p>code in Java</p>
-  </li>
-</ul>
+<img src="greenfox.png" alt="A green fox"/>
+<p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.favoriteFood} + ' and ' + ${fox.favoriteDrink} + '. He knows ' + ${fox.getNumberOfLearntTricks()} + ' trick(s).'"></p>
+<h1>Known trick(s)</h1>
+<div th:switch="${fox.getNumberOfLearntTricks() != 0}" }>
+  <p th:case="false">It's a little fox baby, does not know any tricks.</p>
+  <ul th:case="true" th:each="oneTrick : ${fox.getAllTricks()}">
+    <li>
+      <p th:text="${oneTrick}"></p>
+    </li>
+  </ul>
+</div>
 </body>
 </html>

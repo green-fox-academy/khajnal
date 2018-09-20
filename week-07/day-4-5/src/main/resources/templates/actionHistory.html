@@ -11,16 +11,8 @@
   <li><a th:href="'nutritionStore?name=' + ${fox.getName()}">Nutrition Store</a></li>
   <li><a th:href="@{'/actionHistory?name=' + ${fox.getName()}}">Action History</a></li>
 </ul>
-<form method="post">
-  <label for="food">Foods</label>
-  <select name="food">
-    <option id="food" th:each="food : ${catering.getFood()}" th:value="${food}" th:text="${food}"></option>
-  </select>
-  <label for="drink">Drinks</label>
-  <select name="drink">
-    <option id="drink" th:each="drink : ${catering.getDrink()}" th:value="${drink}" th:text="${drink}"></option>
-  </select>
-  <input type="submit">
-</form>
+<ul th:each="action : ${fox.getAllActions()}">
+  <li th:text="${action}"></li>
+</ul>
 </body>
 </html>
