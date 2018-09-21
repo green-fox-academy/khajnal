@@ -9,6 +9,7 @@
 <ul>
   <li><a href=index.html>Information</a></li>
   <li><a th:href="@{'/nutritionStore?name=' + ${fox.getName()}}">Nutrition Store</a></li>
+  <li><a th:href="@{'/trickCenter?name=' + ${fox.getName()}}">Trick Center</a></li>
   <li><a th:href="@{'/actionHistory?name=' + ${fox.getName()}}">Action History</a></li>
 </ul>
 <img src="greenfox.png" alt="A green fox"/>
@@ -16,11 +17,13 @@
 <h1>Known trick(s)</h1>
 <div th:switch="${fox.getNumberOfLearntTricks() != 0}" }>
   <p th:case="false">It's a little fox baby, does not know any tricks.</p>
-  <ul th:case="true" th:each="oneTrick : ${fox.getAllTricks()}">
-    <li>
-      <p th:text="${oneTrick}"></p>
-    </li>
-  </ul>
+  <div th:case="true">
+    <ul th:each="oneTrick : ${fox.getLearntTricks()}">
+      <li>
+        <p th:text="${oneTrick}"></p>
+      </li>
+    </ul>
+  </div>
 </div>
 </body>
 </html>

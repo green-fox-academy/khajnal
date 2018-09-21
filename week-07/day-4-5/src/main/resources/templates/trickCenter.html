@@ -13,13 +13,9 @@
   <li><a th:href="@{'/actionHistory?name=' + ${fox.getName()}}">Action History</a></li>
 </ul>
 <form method="post">
-  <label for="food">Foods</label>
-  <select name="food">
-    <option id="food" th:each="food : ${catering.getFood()}" th:value="${food}" th:text="${food}"></option>
-  </select>
-  <label for="drink">Drinks</label>
-  <select name="drink">
-    <option id="drink" th:each="drink : ${catering.getDrink()}" th:value="${drink}" th:text="${drink}"></option>
+  <label for="trick">Foods</label>
+  <select name="trick">
+    <option id="trick" th:each="trick : ${trickPossibilities.getAllTrickPossibilities()}" th:value="${trick}" th:text="${trick}"></option>
   </select>
   <input type="submit">
 </form>

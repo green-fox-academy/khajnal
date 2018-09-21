@@ -7,10 +7,10 @@ import java.util.List;
 
 public class Fox {
   private String name;
-  private List<String> allTricks = new ArrayList<>();
   private String favoriteFood;
   private String favoriteDrink;
   private List<String> allActions = new ArrayList<>();
+  private List<String> learntTricks = new ArrayList<>();
 
   public Fox(String name) {
     this.name = name;
@@ -26,17 +26,17 @@ public class Fox {
 
   public void addAction(String action) {
     LocalDateTime now = LocalDateTime.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MMMM dd. HH:mm:ss : ");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MMMM dd. HH:mm:ss");
     String formattedDateTime = now.format(formatter);
-    allActions.add(formattedDateTime + " " + action);
+    allActions.add(formattedDateTime + " : " + action);
+  }
+
+  public void learnTrick(String trick) {
+    learntTricks.add(trick);
   }
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public void setAllTricks(List<String> allTricks) {
-    this.allTricks = allTricks;
   }
 
   public void setAllActions() {
@@ -55,13 +55,12 @@ public class Fox {
     return name;
   }
 
-
-  public List<String> getAllTricks() {
-    return allTricks;
-  }
-
   public List<String> getAllActions() {
     return allActions;
+  }
+
+  public List<String> getLearntTricks() {
+    return learntTricks;
   }
 
   public String getFavoriteFood() {
@@ -73,6 +72,6 @@ public class Fox {
   }
 
   public Integer getNumberOfLearntTricks() {
-    return getAllTricks().size();
+    return getLearntTricks().size();
   }
 }

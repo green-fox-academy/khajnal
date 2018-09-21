@@ -9,6 +9,7 @@
 <ul>
   <li><a href=information.html>Information</a></li>
   <li><a th:href="'nutritionStore?name=' + ${fox.getName()}">Nutrition Store</a></li>
+  <li><a th:href="@{'/trickCenter?name=' + ${fox.getName()}}">Trick Center</a></li>
   <li><a th:href="@{'/actionHistory?name=' + ${fox.getName()}}">Action History</a></li>
 </ul>
 <ul th:each="action : ${fox.getAllActions()}">

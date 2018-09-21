@@ -1,5 +1,6 @@
 package com.greenfoxacademy.tamagochi.controller;
 
+import com.greenfoxacademy.tamagochi.model.TrickPossibilities;
 import com.greenfoxacademy.tamagochi.model.Catering;
 import com.greenfoxacademy.tamagochi.model.FoxClub;
 
@@ -15,10 +16,12 @@ public class MainController {
 
   FoxClub foxClub;
   Catering catering;
+  TrickPossibilities trickPossibilities;
 
   public MainController() {
     foxClub = new FoxClub();
     catering = new Catering();
+    trickPossibilities = new TrickPossibilities();
   }
 
   @GetMapping("/")
@@ -71,6 +74,24 @@ public class MainController {
       model.addAttribute("fox", foxClub.findTheFox(foxNameInput));
       model.addAttribute("actions", foxClub.findTheFox(foxNameInput).getAllActions());
       return "actionHistory";
+    } else {
+      return "redirect:/login";
+    }
+  }
+
+  @PostMapping("/trickCenter")
+  public String trickLearnede(@RequestParam(value = "name") String name, @ModelAttribute(value = "trick") String trick) {
+    foxClub.findTheFox(name).learnTrick(trick);
+    foxClub.findTheFox(name).addAction("New trick learned: " + trick + ".");
+    return "redirect:/?name=" + name;
+  }
+
+  @GetMapping("/trickCenter")
+  public String goTrickCenter(@RequestParam(value = "name", required = false) String foxNameInput, Model model) {
+    if (foxNameInput != null) {
+      model.addAttribute("fox", foxClub.findTheFox(foxNameInput));
+      model.addAttribute("trickPossibilities", trickPossibilities);
+      return "trickCenter";
     } else {
       return "redirect:/login";
     }
