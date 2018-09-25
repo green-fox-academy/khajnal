@@ -23,8 +23,8 @@ public class TodomysqlApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    todoRepository.save(new Todo("Blabla"));
-    todoRepository.save(new Todo("bubu", true, true));
-    todoRepository.save(new Todo("blublu", true, true));
+    todoRepository.save(new Todo("Ask how to do a sort by id"));
+    todoRepository.save(new Todo("Finish the time of creation", true, true));
+    todoRepository.save(new Todo("Do the more information page", true, false));
   }
 }
