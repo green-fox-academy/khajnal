@@ -13,7 +13,7 @@
   <li><a th:href="@{'/actionHistory?name=' + ${fox.getName()}}">Action History</a></li>
 </ul>
 <form method="post">
-  <label for="trick">Foods</label>
+  <label for="trick">Tricks</label>
   <select name="trick">
     <option id="trick" th:each="trick : ${trickPossibilities.getAllTrickPossibilities()}" th:value="${trick}" th:text="${trick}"></option>
   </select>
