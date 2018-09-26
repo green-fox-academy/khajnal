@@ -13,6 +13,7 @@
   <input th:type="checkbox" id="urgent" name="todoUrgent" th:field="*{urgent}"><br>
   <label for="done">Done</label>
   <input th:type="checkbox" id="done" name="todoDone" th:field="*{done}"><br>
+  <input th:type="hidden" th:field="*{dateOfCreation}"><br>
   <input th:type="submit">
 </form>
 <a th:href="@{/todo/}">Cancel</a>
