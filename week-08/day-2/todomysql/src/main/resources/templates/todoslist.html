@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" th:href="@{/style.css}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <title>Title</title>
 </head>
 <body>
-<h1 style="text-transform: uppercase">Todos for today</h1>
-<a th:href="@{'/todo/add'}">Add new Todo</a>
-<table>
+<h1 style="text-transform: uppercase" class="text-center">Your tasks to do</h1>
+<a class="text-center" th:href="@{'/todo/add'}">Add new Todo</a>
+<table class="table table-hover">
   <thead>
   <tr>
     <th>ID</th>
@@ -16,20 +16,29 @@
     <th>Done</th>
     <th>Urgent</th>
     <th>Time of creation</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <div th:each="todo:${todoslist}">
     <tr>
       <td th:text="${todo.getId()}"></td>
       <td th:text="${todo.getTitle()}"></td>
-      <td th:text="${todo.isDone()}"></td>
-      <td th:text="${todo.isUrgent()}"></td>
+      <div th:switch="${todo.isDone()}">
+        <td th:case="true"><span class="glyphicon glyphicon-ok" style="color: greenyellow"></span></td>
+        <td th:case="false"><span class="glyphicon glyphicon-remove" style="color: indianred"></span></td>
+      </div>
+      <div th:switch="${todo.isUrgent()}">
+        <td th:case="true"><span class="glyphicon glyphicon-ok" style="color: greenyellow"></span></td>
+        <td th:case="false"><span class="glyphicon glyphicon-remove" style="color: indianred"></span></td>
+      </div>
       <td th:text="${todo.dateOfCreation}"></td>
-      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}">delete</a></td>
-      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}">edit</a></td>
+      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}" class="glyphicon glyphicon-pencil" style="color: blue"></a></td>
+      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}" class="glyphicon glyphicon-ban-circle" style="color: darkred"></a></td>
     </tr>
     </ul>
   </div>
 </table>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
