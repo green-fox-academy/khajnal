@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Nixie+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet">
 <head>
   <meta charset="UTF-8"/>
   <title>Assignees</title>
 </head>
-<body>
-<h1>All Assignees</h1>
-<table>
+<body style="background-color: rgb(222,222,222) ; font-family: 'Nixie One', cursive; color: black">
+<h1 style="text-transform: uppercase ; font-family:'Syncopate', sans-serif" class="text-center">All Assignees</h1>
+<table class="table table-hover">
   <thead>
   <th>Id</th>
   <th>Name</th>
   <th>Email</th>
+  <th>Edit</th>
+  <th>Delete</th>
   </thead>
   <tbody th:each="assignee:${allAssignees}">
   <td th:text="*{assignee.id}"></td>
   <td th:text="*{assignee.name}"></td>
   <td th:text="*{assignee.email}"></td>
-  <td><a th:href="'/todo/' + *{assignee.id} + '/edit'"><span class="glyphicon glyphicon-pencil" style="color: blue"></span></a></td>
-  <td><a th:href="'/todo/' + *{assignee.id} + '/delete'"><span class="glyphicon glyphicon-ban-circle" style="color: blue"></span></a></td>
+  <td><a th:href="'/todo/listAssignees/' + *{assignee.id} + '/edit'"><span class="glyphicon glyphicon-pencil" style="color: blue"></span></a></td>
+  <td><a th:href="'/todo/listAssignees/' + *{assignee.id} + '/delete'"><span class="glyphicon glyphicon-ban-circle" style="color: blue"></span></a></td>
   </tbody>
 </table>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

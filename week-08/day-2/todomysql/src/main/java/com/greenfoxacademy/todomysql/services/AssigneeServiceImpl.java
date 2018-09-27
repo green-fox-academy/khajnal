@@ -21,4 +21,19 @@ public class AssigneeServiceImpl implements AssigneeService {
   public List<Assignee> findAll() {
     return assigneeRepository.findAll();
   }
+
+  @Override
+  public void deleteById(long id) {
+    assigneeRepository.deleteById(id);
+  }
+
+  @Override
+  public Assignee findById(long id) {
+    return assigneeRepository.findById(id);
+  }
+
+  @Override
+  public void save(Assignee assignee) {
+    assigneeRepository.save(assignee);
+  }
 }
