@@ -1,7 +1,6 @@
 package com.greenfoxacademy.todomysql.controller;
 
 import com.greenfoxacademy.todomysql.model.Todo;
-import com.greenfoxacademy.todomysql.repository.TodoRepository;
 import com.greenfoxacademy.todomysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,12 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/todo")
 public class TodoController {
 
-  private TodoRepository todoRepository;
   private TodoService todoService;
 
   @Autowired
-  public TodoController(TodoRepository todoRepository, TodoService todoService) {
-    this.todoRepository = todoRepository;
+  public TodoController(TodoService todoService) {
     this.todoService = todoService;
   }
 
@@ -46,13 +43,15 @@ public class TodoController {
   }
 
   @GetMapping("/{id}/delete")
-  public String deleteTask(@ModelAttribute(value = "id") Long id) {
+  public String deleteTask(@PathVariable(value = "id") Long id) {
     todoService.deleteById(id);
     return "redirect:/todo/";
   }
 
+  //ModelAttribute v PathVariable? megkerdezni!
+
   @GetMapping("/{id}/edit")
-  public String editTask(@ModelAttribute(value = "id") Long id, Model model) {
+  public String editTask(@PathVariable(value = "id") Long id, Model model) {
     model.addAttribute("id", id);
     model.addAttribute("todo", todoService.findById(id));
     return "editTodo";
