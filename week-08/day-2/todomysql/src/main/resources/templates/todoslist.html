@@ -9,7 +9,7 @@
 <body style="background-color: rgb(222,222,222) ; font-family: 'Nixie One', cursive; color: black">
 <h1 style="text-transform: uppercase ; font-family:'Cinzel Decorative', cursive" class="text-center">Your tasks to do</h1>
 <div class="text-center">
-  <form th:action="@{/todo/add}" th:type="submit">
+  <form action="/todo/add" method="get">
   <button type="=submit" class="btn btn-default btn-md" style="background-color: rgb(171,172,171); color: rgb(95,95,95)">
     <span class="glyphicon glyphicon-star"></span><b> Create new Todo</b>
   </button>
