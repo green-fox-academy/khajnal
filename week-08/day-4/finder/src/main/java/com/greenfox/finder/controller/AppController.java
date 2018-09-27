@@ -1,11 +1,12 @@
-package com.greenfox.controller;
+package com.greenfox.finder.controller;
 
-import com.greenfox.service.UserService;
-import com.greenfox.error.model.User;
+import com.greenfox.finder.service.UserService;
+import com.greenfox.finder.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,15 +25,15 @@ public class AppController {
   }
 
   @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("yolo", service.getAll());
-        return "main";
-    }
+  public String index(Model model) {
+    model.addAttribute("user", new User());
+    model.addAttribute("allUser", service.getAll());
+    return "main";
+  }
 
-    @PostMapping("/app")
-    public String create() {
-        service.save(new User());
-        return "redirect:/";
-    }
+  @PostMapping("/")
+  public String create(@ModelAttribute(value = "user") User newUser) {
+    service.save(newUser);
+    return "redirect:/app/";
+  }
 }

@@ -1,4 +1,4 @@
-package com.greenfox.error.model;
+package com.greenfox.finder.model;
 
 /**
  * Created by aze on 25/10/17.

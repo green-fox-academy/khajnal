@@ -2,59 +2,65 @@ package com.greenfoxacademy.todomysql.controller;
 
 import com.greenfoxacademy.todomysql.model.Todo;
 import com.greenfoxacademy.todomysql.repository.TodoRepository;
+import com.greenfoxacademy.todomysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 @RequestMapping("/todo")
 public class TodoController {
 
   private TodoRepository todoRepository;
+  private TodoService todoService;
 
   @Autowired
-  public TodoController(TodoRepository todoRepository) {
+  public TodoController(TodoRepository todoRepository, TodoService todoService) {
     this.todoRepository = todoRepository;
+    this.todoService = todoService;
   }
 
   @GetMapping(value = {"/list", "/"})
-  public String list(@RequestParam(value = "isActive", required = false) Boolean isActive, Model model) {
-    if (isActive == null) {
-      model.addAttribute("todoslist", todoRepository.findAllByOrderByIdAsc());
-    } else {
-      model.addAttribute("todoslist", todoRepository.findByDone(!isActive));
-    }
+  public String list(@RequestParam(value = "isActive", required = false) Boolean isActive, @RequestParam(value = "value", required = false) String searchedValue, Model model) {
+    model.addAttribute("todolist",todoService.getProperTodos(isActive, searchedValue));
     return "todoslist";
   }
 
+  @PostMapping(value = {"/list", "/"})
+  public String getSearched(@ModelAttribute(value = "searchedValue") String searchedValue, Model model) {
+    model.addAttribute("searchedValue", searchedValue);
+    return "redirect:/todo/?value=" + searchedValue;
+  }
+
   @GetMapping("/add")
-  public String addTaskToList() {
+  public String getAddPage() {
     return "addTodo";
   }
 
   @PostMapping("/add")
-  public String getTaskFromUserInput(@ModelAttribute(value = "newtodo") String title) {
-    todoRepository.save(new Todo(title));
+  public String addTodoFromUserInput(@ModelAttribute(value = "newtodo") String title) {
+    todoService.save(new Todo(title));
     return "redirect:/todo/";
   }
 
   @GetMapping("/{id}/delete")
   public String deleteTask(@ModelAttribute(value = "id") Long id) {
-    todoRepository.deleteById(id);
+    todoService.deleteById(id);
     return "redirect:/todo/";
   }
 
   @GetMapping("/{id}/edit")
   public String editTask(@ModelAttribute(value = "id") Long id, Model model) {
     model.addAttribute("id", id);
-    model.addAttribute("todo", todoRepository.findById(id).get());
+    model.addAttribute("todo", todoService.findById(id));
     return "editTodo";
   }
 
   @PostMapping("/{id}/edit")
   public String setTheNewValuesForTask(@ModelAttribute(value = "todo") Todo todo) {
-    todoRepository.save(todo);
+    todoService.save(todo);
     return "redirect:/todo/";
   }
 }
