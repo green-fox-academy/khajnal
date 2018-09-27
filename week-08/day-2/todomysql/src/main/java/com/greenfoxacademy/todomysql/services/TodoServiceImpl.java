@@ -37,12 +37,10 @@ public class TodoServiceImpl implements TodoService {
 
   @Override
   public List<Todo> getProperTodos(Boolean isActive, String searchedValue) {
-    List<Todo> properTodo = new ArrayList<>();
-    if (isActive == null && searchedValue == null) {
-      properTodo = todoRepository.findAllByOrderByIdAsc();
-    }
+    List<Todo> properTodo = todoRepository.findAllByOrderByIdAsc();
+
     if (isActive == null && searchedValue != null) {
-      properTodo = todoRepository.findAllByOrderByIdAsc().stream().filter(x -> x.getTitle().contains(searchedValue)).collect(Collectors.toList());
+      properTodo = properTodo.stream().filter(x -> x.getTitle().contains(searchedValue)).collect(Collectors.toList());
     }
     if (isActive != null && searchedValue == null) {
       properTodo = todoRepository.findByDone(!isActive);
