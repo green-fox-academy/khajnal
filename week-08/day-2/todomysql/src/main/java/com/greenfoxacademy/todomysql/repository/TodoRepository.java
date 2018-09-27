@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface TodoRepository extends CrudRepository<Todo, Long> {
   List<Todo> findByDone(boolean isDone);
+
   List<Todo> findAllByOrderByIdAsc();
+
   Todo findById(long id);
 }

@@ -18,7 +18,6 @@ public class TodoServiceImpl implements TodoService {
     this.todoRepository = todoRepository;
   }
 
-
   @Override
   public void save(Todo todo) {
     todoRepository.save(todo);

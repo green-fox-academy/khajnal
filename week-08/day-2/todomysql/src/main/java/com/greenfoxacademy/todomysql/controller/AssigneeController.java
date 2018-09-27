@@ -25,7 +25,7 @@ public class AssigneeController {
   }
 
 
-//  nem lehet masik controllerben ugyanolyan illegalstateexception
+  //  nem lehet masik controllerben ugyanolyan illegalstateexception
   @GetMapping("/listAssignees/{id}/delete")
   public String removeAssignee(@PathVariable(value = "id") long id) {
     assigneeService.deleteById(id);

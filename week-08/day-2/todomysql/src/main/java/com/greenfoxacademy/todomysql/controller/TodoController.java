@@ -21,7 +21,7 @@ public class TodoController {
 
   @GetMapping(value = {"/list", "/"})
   public String list(@RequestParam(value = "isActive", required = false) Boolean isActive, @RequestParam(value = "value", required = false) String searchedValue, Model model) {
-    model.addAttribute("todolist",todoService.getProperTodos(isActive, searchedValue));
+    model.addAttribute("todolist", todoService.getProperTodos(isActive, searchedValue));
     return "todoslist";
   }
 

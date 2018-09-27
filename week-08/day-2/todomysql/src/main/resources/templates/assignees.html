@@ -22,7 +22,7 @@
   <td th:text="*{assignee.name}"></td>
   <td th:text="*{assignee.email}"></td>
   <td><a th:href="'/todo/listAssignees/' + *{assignee.id} + '/edit'"><span class="glyphicon glyphicon-pencil" style="color: blue"></span></a></td>
-  <td><a th:href="'/todo/listAssignees/' + *{assignee.id} + '/delete'"><span class="glyphicon glyphicon-ban-circle" style="color: blue"></span></a></td>
+  <td><a th:href="'/todo/listAssignees/' + *{assignee.id} + '/delete'"><span class="glyphicon glyphicon-ban-circle" style="color: darkred"></span></a></td>
   </tbody>
 </table>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
