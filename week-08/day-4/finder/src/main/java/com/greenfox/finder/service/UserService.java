@@ -1,4 +1,4 @@
-package service;
+package com.greenfox.service;
 
 import com.greenfox.error.model.User;
 
