@@ -48,8 +48,6 @@ public class TodoController {
     return "redirect:/todo/";
   }
 
-  //ModelAttribute v PathVariable? megkerdezni!
-
   @GetMapping("/{id}/edit")
   public String editTask(@PathVariable(value = "id") Long id, Model model) {
     model.addAttribute("id", id);
