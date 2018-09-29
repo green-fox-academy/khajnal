@@ -1,9 +1,12 @@
 package com.greenfoxacademy.matrixchecker.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class Matrix {
@@ -12,12 +15,17 @@ public class Matrix {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
   String date;
-  Integer matrixNumbers;
+  String[] matrixNumbers;
 
   public Matrix() {
   }
 
-  public Matrix(String date, Integer matrixNumbers) {
+  public Matrix(String[] matrixNumbers) {
+    this.date = LocalDateTime.now().toString();
+    this.matrixNumbers = matrixNumbers;
+  }
+
+  public Matrix(String date, String[] matrixNumbers) {
     this.date = date;
     this.matrixNumbers = matrixNumbers;
   }
@@ -38,11 +46,12 @@ public class Matrix {
     this.date = date;
   }
 
-  public Integer getMatrixNumbers() {
+  public String[] getMatrixNumbers() {
     return matrixNumbers;
   }
 
-  public void setMatrixNumbers(Integer matrixNumbers) {
+  public void setMatrixNumbers(String[] matrixNumbers) {
     this.matrixNumbers = matrixNumbers;
   }
+
 }
