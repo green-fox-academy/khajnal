@@ -1,11 +1,9 @@
 package com.greenfoxacademy.todomysql.services;
 
 import com.greenfoxacademy.todomysql.model.Todo;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface TodoService {
 
   void save(Todo todo);
