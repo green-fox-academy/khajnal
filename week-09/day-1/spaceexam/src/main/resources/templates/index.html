@@ -18,7 +18,8 @@
       <td th:text="*{name}"></td>
       <td th:text="*{population}"></td>
       <td></td>
-      <td th:text="${ship.utilization}"></td>
+      <td th:if="${ship.planet} == *{name}" th:text="${ship.utilization}"></td>
+      <td th:unless="${ship.planet} == *{name}">-</td>
     </tr>
   </tbody>
 </table>
