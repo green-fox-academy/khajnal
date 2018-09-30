@@ -1,6 +1,5 @@
 package com.greenfoxacademy.matrixchecker.services;
 
-import com.greenfoxacademy.matrixchecker.models.Matrix;
 import com.greenfoxacademy.matrixchecker.repositories.MatrixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +20,11 @@ public class MatrixServiceImpl implements MatrixService {
   @Override
   public String[] transformToMatrix(String matrix) {
     String[] splittedMatrix = matrix.split("\n");
-    String[] modifiedMatrix = splittedMatrix;
     for (int i = 0; i < splittedMatrix.length; i++) {
-      modifiedMatrix[i] = splittedMatrix[i].replaceAll("[\r,\n]", "");
-      modifiedMatrix[i] = modifiedMatrix[i].replaceAll(" ", "");
+      splittedMatrix[i] = splittedMatrix[i].replaceAll("[\r,\n]", "");
+      splittedMatrix[i] = splittedMatrix[i].replaceAll(" ", "");
     }
-    return modifiedMatrix;
+    return splittedMatrix;
   }
 
   @Override
