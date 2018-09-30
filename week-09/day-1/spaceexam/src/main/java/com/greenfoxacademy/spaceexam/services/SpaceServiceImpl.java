@@ -30,4 +30,47 @@ public class SpaceServiceImpl implements SpaceService {
   public Spaceship getSpaceShipById(long id) {
     return spaceshipRepository.findById(id).get();
   }
+
+  @Override
+  public void movePeopleToShip(long shipId, long planetId) {
+    Spaceship spaceship = spaceshipRepository.findById(shipId).get();
+    Planet planet = planetRepository.findById(planetId).get();
+    int freeSpaceOnShip = spaceship.getMaxCapacity() - spaceship.getUtilization();
+    long planetPopulation = planet.getPopulation();
+    if (freeSpaceOnShip == 0) {
+      return;
+    }
+    if (planetPopulation < freeSpaceOnShip) {
+      spaceship.increaseUtilization((int) planetPopulation);
+      planet.setPopulation(0);
+    } else {
+      spaceship.setUtilization(spaceship.getMaxCapacity());
+      planet.decreasePopulation(freeSpaceOnShip);
+    }
+    spaceshipRepository.save(spaceship);
+    planetRepository.save(planet);
+  }
+
+  @Override
+  public void movePeopleToPlanet(long shipId, long planetId) {
+    Spaceship spaceship = spaceshipRepository.findById(shipId).get();
+    Planet planet = planetRepository.findById(planetId).get();
+    planet.decreasePopulation(-spaceship.getUtilization());
+    spaceship.setUtilization(0);
+    planetRepository.save(planet);
+    spaceshipRepository.save(spaceship);
+  }
+
+  @Override
+  public void moveShipToPlanet(long shipId, long planetId) {
+    Spaceship spaceship = spaceshipRepository.findById(shipId).get();
+    Planet planet = planetRepository.findById(planetId).get();
+    String planetName = planet.getName();
+
+    if (spaceship.getPlanet().equals(planetName)) {
+      return;
+    }
+    spaceship.setPlanet(planetName);
+    spaceshipRepository.save(spaceship);
+  }
 }

@@ -9,4 +9,10 @@ public interface SpaceService {
 
   List<Planet> getAllPlanets();
   Spaceship getSpaceShipById(long id);
+
+  void movePeopleToShip(long shipId, long planetId);
+
+  void movePeopleToPlanet(long shipId, long planetId);
+
+  void moveShipToPlanet(long shipId, long planetId);
 }
