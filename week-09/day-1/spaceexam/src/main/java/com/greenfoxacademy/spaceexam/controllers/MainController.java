@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-  SpaceService spaceService;
+  private SpaceService spaceService;
 
   @Autowired
   public MainController(SpaceService spaceService) {
@@ -18,6 +18,8 @@ public class MainController {
 
   @GetMapping()
   public String getMainPage(Model model) {
+    model.addAttribute("planets", spaceService.getAllPlanets());
+    model.addAttribute("ship", spaceService.getSpaceShipById(1L));
     return "index";
   }
 }

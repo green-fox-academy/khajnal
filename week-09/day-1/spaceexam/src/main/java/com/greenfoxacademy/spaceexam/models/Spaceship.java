@@ -10,10 +10,10 @@ public class Spaceship {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
-  int maxCapacity;
-  String planet;
-  int utilization;
+  private Long id;
+  private int maxCapacity;
+  private String planet;
+  private int utilization;
 
   public Spaceship() {
   }

@@ -10,9 +10,9 @@ public class Planet {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
-  String name;
-  Long population;
+  private Long id;
+  private String name;
+  private Long population;
 
   public Planet() {
   }
