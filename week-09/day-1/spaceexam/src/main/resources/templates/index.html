@@ -5,6 +5,20 @@
   <title>Space</title>
 </head>
 <body>
-<h1>Halo</h1>
+<h1>Space Transporter</h1>
+<table>
+  <thead>
+  <th>Planet</th>
+  <th>Population</th>
+  <th>Spaceship location</th>
+  <th>People on ship</th>
+  </thead>
+  <tbody th:each="planet: ${planets}">
+    <tr>
+      <td th:text="${planet.getName}"></td>
+      <td th:text="${planet.getPopulation}"></td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
