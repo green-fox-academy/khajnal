@@ -1,9 +1,7 @@
 package com.greenfoxacademy.week09day1.services;
 
-import com.greenfoxacademy.week09day1.models.ArrayWithType;
-import com.greenfoxacademy.week09day1.models.DoubledNumber;
-import com.greenfoxacademy.week09day1.models.Result;
-import com.greenfoxacademy.week09day1.models.Until;
+import com.greenfoxacademy.week09day1.models.*;
+import com.greenfoxacademy.week09day1.repositories.LogRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +9,12 @@ import java.util.List;
 
 @Service
 public class MainServiceImpl implements MainService {
+
+  private LogRepository logRepository;
+
+  public MainServiceImpl(LogRepository logRepository) {
+    this.logRepository = logRepository;
+  }
 
   @Override
   public DoubledNumber doubleTheInput(int input) {
@@ -56,7 +60,7 @@ public class MainServiceImpl implements MainService {
   private Result sumArrayWithType(ArrayWithType arrayWithType) {
     int sum = 0;
     for (int i = 0; i < arrayWithType.getNumbers().size(); i++) {
-     sum += arrayWithType.getNumbers().get(i);
+      sum += arrayWithType.getNumbers().get(i);
     }
     Result result = new Result(sum);
     return result;
@@ -81,4 +85,15 @@ public class MainServiceImpl implements MainService {
     return result;
   }
 
+  public void createLog(String endpoint, Object object) {
+    Log log = new Log(endpoint, object.toString());
+    logRepository.save(log);
+
+  }
+  public Entries showEntries() {
+    Entries entries = new Entries();
+    entries.setEntries(logRepository.findAll());
+    entries.setEntryCount(logRepository.findAll().size());
+    return entries;
+  }
 }

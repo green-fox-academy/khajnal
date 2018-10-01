@@ -2,7 +2,7 @@ package com.greenfoxacademy.week09day1.models;
 
 public class Until {
 
-  Integer until;
+  private Integer until;
 
   public Until() {
   }

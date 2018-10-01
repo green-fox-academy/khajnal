@@ -22,7 +22,9 @@ public class MainRestController {
       ErrorResponse error = new ErrorResponse("Please provide an input!");
       return error;
     }
-    return mainService.doubleTheInput(input);
+    DoubledNumber doubledNumber = mainService.doubleTheInput(input);
+    mainService.createLog("/doubling", doubledNumber);
+    return doubledNumber;
   }
 
   @GetMapping("/greeter")
@@ -36,6 +38,7 @@ public class MainRestController {
       return errorResponse;
     }
     Message message = new Message();
+    mainService.createLog("/greeter", message);
     message.setWelcomeMessage(name, title);
     return message;
   }
@@ -43,6 +46,7 @@ public class MainRestController {
   @GetMapping("/appenda/{appendable}")
   public Appendable appendALetter(@PathVariable(value = "appendable") String appendable) {
     Appendable appendableObj = new Appendable(appendable);
+    mainService.createLog("/doubling/" + appendable, appendableObj);
     return appendableObj;
   }
 
@@ -55,8 +59,10 @@ public class MainRestController {
     Result result = new Result();
     if (action.equals("sum")) {
       result = mainService.sumTheUntil(until);
+      mainService.createLog("/dountil/sum", result);
     } else if (action.equals("factor")) {
       result = mainService.factorTheUntil(until);
+      mainService.createLog("/dountil/factor", result);
     }
     return result;
   }
@@ -68,6 +74,12 @@ public class MainRestController {
       return error;
     }
     Result result = mainService.countResultFromArrayWithType(arrayWithType);
+    mainService.createLog("/arrays", result);
     return result;
+  }
+
+  @GetMapping("/log")
+  public Entries showAllLogs() {
+    return mainService.showEntries();
   }
 }

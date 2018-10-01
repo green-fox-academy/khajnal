@@ -2,7 +2,7 @@ package com.greenfoxacademy.week09day1.models;
 
 public class Message {
 
-  String welcome_message;
+  private String welcome_message;
 
   public Message() {
   }

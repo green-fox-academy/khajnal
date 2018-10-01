@@ -4,8 +4,8 @@ import java.util.List;
 
 public class ArrayWithType {
 
-  String what;
-  List<Integer> numbers;
+  private String what;
+  private List<Integer> numbers;
 
   public ArrayWithType() {
   }

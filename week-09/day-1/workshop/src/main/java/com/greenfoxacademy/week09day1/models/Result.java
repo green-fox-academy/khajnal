@@ -2,7 +2,7 @@ package com.greenfoxacademy.week09day1.models;
 
 public class Result {
 
-  Object result;
+  private Object result;
 
   public Result() {
   }

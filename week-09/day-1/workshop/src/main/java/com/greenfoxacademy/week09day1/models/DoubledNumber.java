@@ -1,8 +1,8 @@
 package com.greenfoxacademy.week09day1.models;
 
 public class DoubledNumber {
-  int received;
-  int result;
+  private int received;
+  private int result;
 
   public DoubledNumber() {
   }
