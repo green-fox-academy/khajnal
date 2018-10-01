@@ -2,20 +2,20 @@ package com.greenfoxacademy.week09day1.models;
 
 public class Result {
 
-  int result;
+  Object result;
 
   public Result() {
   }
 
-  public Result(int result) {
+  public Result(Object result) {
     this.result = result;
   }
 
-  public int getResult() {
+  public Object getResult() {
     return result;
   }
 
-  public void setResult(int result) {
+  public void setResult(Object result) {
     this.result = result;
   }
 }

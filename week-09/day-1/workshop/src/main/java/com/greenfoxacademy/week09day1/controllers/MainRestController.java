@@ -62,8 +62,8 @@ public class MainRestController {
   }
 
   @PostMapping("/arrays")
-  public Result getResultFromArrayWithType() {
-    Result result = new Result();
+  public Result getResultFromArrayWithType(@RequestBody ArrayWithType arrayWithType) {
+    Result result = mainService.countResultFromArrayWithType(arrayWithType);
     return result;
   }
 }
