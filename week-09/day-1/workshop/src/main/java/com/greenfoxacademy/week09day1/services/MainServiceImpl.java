@@ -2,6 +2,7 @@ package com.greenfoxacademy.week09day1.services;
 
 import com.greenfoxacademy.week09day1.models.*;
 import com.greenfoxacademy.week09day1.repositories.LogRepository;
+import javafx.scene.transform.Translate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -88,12 +89,38 @@ public class MainServiceImpl implements MainService {
   public void createLog(String endpoint, Object object) {
     Log log = new Log(endpoint, object.toString());
     logRepository.save(log);
-
   }
+
   public Entries showEntries() {
     Entries entries = new Entries();
     entries.setEntries(logRepository.findAll());
     entries.setEntryCount(logRepository.findAll().size());
     return entries;
+  }
+
+  @Override
+  public Object translateToTeveLanguage(TextToTranslate textToTranslate) {
+    if (textToTranslate.getLang().equals("hun")) {
+      TranslatedText translatedText = translateHungarianToTeve(textToTranslate);
+      return translatedText;
+    } else {
+      ErrorResponse error = new ErrorResponse("Sorry I do not know this language.");
+      return error;
+    }
+  }
+
+  private TranslatedText translateHungarianToTeve(TextToTranslate textToTranslate) {
+    String vowels = "aáoóuúeéiíöőüűAEUÚIÍOÓÉÁÜŰÖŐ";
+    String[] splittedTextToTranslate = textToTranslate.getText().split("");
+    String translatedText = "";
+    for (int i = 0; i < splittedTextToTranslate.length; i++) {
+      if (vowels.contains(splittedTextToTranslate[i])) {
+        translatedText += splittedTextToTranslate[i] + "v" + splittedTextToTranslate[i].toLowerCase();
+      } else {
+        translatedText += splittedTextToTranslate[i];
+      }
+    }
+    TranslatedText translatedtextObj = new TranslatedText(translatedText, "teve");
+    return translatedtextObj;
   }
 }

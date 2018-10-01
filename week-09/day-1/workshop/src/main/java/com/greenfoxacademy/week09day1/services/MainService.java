@@ -15,4 +15,6 @@ public interface MainService {
   void createLog(String endPoint, Object object);
 
   Entries showEntries();
+
+  Object translateToTeveLanguage(TextToTranslate textToTranslate);
 }

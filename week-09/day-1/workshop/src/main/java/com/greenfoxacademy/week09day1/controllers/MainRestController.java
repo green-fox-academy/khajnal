@@ -82,4 +82,13 @@ public class MainRestController {
   public Entries showAllLogs() {
     return mainService.showEntries();
   }
+
+  @PostMapping("/translate")
+  public Object translateTheText(@RequestBody(required = false) TextToTranslate textToTranslate) {
+    if (textToTranslate.getLang() == null || textToTranslate.getText() == null) {
+      Error error = new Error("I can't translate that!");
+      return error;
+    }
+    return mainService.translateToTeveLanguage(textToTranslate);
+  }
 }
