@@ -1,11 +1,13 @@
 package com.greenfoxacademy.week09day1.controllers;
 
+import com.greenfoxacademy.week09day1.models.Appendable;
 import com.greenfoxacademy.week09day1.models.DoubledNumber;
 import com.greenfoxacademy.week09day1.models.ErrorResponse;
 import com.greenfoxacademy.week09day1.models.Message;
 import com.greenfoxacademy.week09day1.services.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,10 +41,13 @@ public class MainRestController {
       return errorResponse;
     }
     Message message = new Message();
-    message.setWelcomeMessage(name, title );
+    message.setWelcomeMessage(name, title);
     return message;
   }
 
   @GetMapping("/appenda/{appendable}")
-  public Appendable
+  public Appendable appendALetter(@PathVariable(value = "appendable") String appendable) {
+    Appendable appendableObj = new Appendable(appendable);
+    return appendableObj;
+  }
 }
