@@ -19,9 +19,9 @@ public class Log {
   public Log() {
   }
 
-  public Log(String endpoint, Object object) {
+  public Log(String endpoint, Object data) {
     this.endpoint = endpoint;
-    this.data = object.toString();
+    this.data = data.toString();
     this.createdAt = LocalDateTime.now().toString();
   }
 

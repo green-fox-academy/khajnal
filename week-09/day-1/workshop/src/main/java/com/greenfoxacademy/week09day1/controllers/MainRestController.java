@@ -38,8 +38,8 @@ public class MainRestController {
       return errorResponse;
     }
     Message message = new Message();
-    mainService.createLog("/greeter", message);
     message.setWelcomeMessage(name, title);
+    mainService.createLog("/greeter", message);
     return message;
   }
 

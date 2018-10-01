@@ -34,4 +34,11 @@ public class Entries {
   public void addLog(Log log) {
     entries.add(log);
   }
+
+  @Override
+  public String toString() {
+    return "Entries{" +
+            "entries=" + entries +
+            '}';
+  }
 }

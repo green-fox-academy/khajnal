@@ -29,4 +29,12 @@ public class ArrayWithType {
   public void setNumbers(List<Integer> numbers) {
     this.numbers = numbers;
   }
+
+  @Override
+  public String toString() {
+    return "ArrayWithType{" +
+            "what='" + what + '\'' +
+            ", numbers=" + numbers +
+            '}';
+  }
 }

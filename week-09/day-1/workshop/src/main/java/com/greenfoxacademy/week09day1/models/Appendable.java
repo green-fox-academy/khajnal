@@ -18,4 +18,11 @@ public class Appendable {
   public void setAppended(String appended) {
     this.appended = appended;
   }
+
+  @Override
+  public String toString() {
+    return "Appendable{" +
+            "appended='" + appended + '\'' +
+            '}';
+  }
 }

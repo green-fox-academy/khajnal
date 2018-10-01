@@ -18,4 +18,11 @@ public class Message {
   public void setWelcomeMessage(String name, String title) {
     this.welcome_message = "Oh, hi there " + name + ", my dear " + title + "!";
   }
+
+  @Override
+  public String toString() {
+    return "Message{" +
+            "welcome_message='" + welcome_message + '\'' +
+            '}';
+  }
 }
