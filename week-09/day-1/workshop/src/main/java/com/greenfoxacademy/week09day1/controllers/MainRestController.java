@@ -60,4 +60,10 @@ public class MainRestController {
     }
     return result;
   }
+
+  @PostMapping("/arrays")
+  public Result getResultFromArrayWithType() {
+    Result result = new Result();
+    return result;
+  }
 }
