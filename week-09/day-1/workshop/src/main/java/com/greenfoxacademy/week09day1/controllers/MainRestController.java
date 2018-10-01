@@ -1,6 +1,8 @@
 package com.greenfoxacademy.week09day1.controllers;
 
 import com.greenfoxacademy.week09day1.models.DoubledNumber;
+import com.greenfoxacademy.week09day1.models.ErrorResponse;
+import com.greenfoxacademy.week09day1.models.Message;
 import com.greenfoxacademy.week09day1.services.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,27 +20,29 @@ public class MainRestController {
   }
 
   @GetMapping("/doubling")
-  public DoubledNumber giveBackDoubledNumber(@RequestParam(value = "input", required = false) Integer input) {
+  public Object giveBackDoubledNumber(@RequestParam(value = "input", required = false) Integer input) {
     if (input == null) {
-      return null;
+      ErrorResponse error = new ErrorResponse("Please provide an input!");
+      return error;
     }
     return mainService.doubleTheInput(input);
   }
 
   @GetMapping("/greeter")
-  public String greetBack(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "title", required = false) String title) {
-    String error = "";
-    if (name == null && title == null) {
-      error = "Please provide a name and title";
-      return error;
-    } else if (name == null) {
-      error = "Please provide a name.";
-      return error;
+  public Object greetBack(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "title", required = false) String title) {
+    ErrorResponse errorResponse = new ErrorResponse();
+    if (name == null) {
+      errorResponse.setError("Please provide a name!");
+      return errorResponse;
     } else if (title == null) {
-      error = "Please provide a title.";
-      return error;
+      errorResponse.setError("Please provide a title!");
+      return errorResponse;
     }
-    String welcomeMessage = "Oh, hi there " + name + ", my dear " + title;
-    return welcomeMessage;
+    Message message = new Message();
+    message.setWelcomeMessage(name, title );
+    return message;
   }
+
+  @GetMapping("/appenda/{appendable}")
+  public Appendable
 }
