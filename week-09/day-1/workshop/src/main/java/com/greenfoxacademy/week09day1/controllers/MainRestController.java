@@ -62,7 +62,11 @@ public class MainRestController {
   }
 
   @PostMapping("/arrays")
-  public Result getResultFromArrayWithType(@RequestBody ArrayWithType arrayWithType) {
+  public Object getResultFromArrayWithType(@RequestBody ArrayWithType arrayWithType) {
+    if (arrayWithType.getNumbers() == null || arrayWithType.getWhat() == null) {
+      ErrorResponse error = new ErrorResponse("Please provide what to do with the numbers!");
+      return error;
+    }
     Result result = mainService.countResultFromArrayWithType(arrayWithType);
     return result;
   }
