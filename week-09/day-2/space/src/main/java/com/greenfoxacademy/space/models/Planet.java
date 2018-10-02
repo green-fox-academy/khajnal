@@ -16,4 +16,33 @@ public class Planet {
 
   public Planet() {
   }
+
+  public Planet(String name, long population) {
+    this.name = name;
+    this.population = population;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public long getPopulation() {
+    return population;
+  }
+
+  public void setPopulation(long population) {
+    this.population = population;
+  }
 }
