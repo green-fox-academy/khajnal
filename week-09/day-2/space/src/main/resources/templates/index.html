@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Space Transporter</title>
+</head>
+<body>
+<h1>Space Transporter</h1>
+<table class="table table-hover">
+  <thead>
+  <th>Planet</th>
+  <th>Population</th>
+  <th>Spaceship Location</th>
+  <th>People on ship</th>
+  </thead>
+  <tbody>
+  <tr th:each="planet:${planets}" th:object="planet">
+    <td th:text="*{name}"></td>
+    <td th:text="*{population}"></td>
+    <td></td>
+    <td th:if="*{name} == ${spaceship.name}" th:text="${spaceship.utilization}"></td>
+    <td th:unless="*{name} == ${spaceship.name}" th:text="-"></td>
+  </tr>
+  </tbody>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>
+</body>
+</html>
