@@ -45,4 +45,8 @@ public class Planet {
   public void setPopulation(long population) {
     this.population = population;
   }
+
+  public void changePopulation (int valueToAdd) {
+    population += valueToAdd;
+  }
 }

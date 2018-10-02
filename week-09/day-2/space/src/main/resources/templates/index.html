@@ -16,12 +16,20 @@
   <th>People on ship</th>
   </thead>
   <tbody>
-  <tr th:each="planet:${planets}" th:object="planet">
+  <tr th:each="planet:${planets}" th:object="${planet}">
     <td th:text="*{name}"></td>
     <td th:text="*{population}"></td>
-    <td></td>
-    <td th:if="*{name} == ${spaceship.name}" th:text="${spaceship.utilization}"></td>
-    <td th:unless="*{name} == ${spaceship.name}" th:text="-"></td>
+    <td th:if="*{name} == ${ship.planet}">
+      <a th:href="@{'/toplanet/' + *{id}}">←To planet</a>
+      <a th:href="@{'/toship/' + *{id}}">To ship→</a>
+    </td>
+    <td th:unless="*{name} == ${ship.planet}">
+      <form action="#" th:action="@{'/movehere/' + *{id}}" method="post">
+        <input type="submit" value="Move here"/>
+      </form>
+    </td>
+    <td th:if="*{name} == ${ship.planet}" th:text="${ship.utilization}"></td>
+    <td th:unless="*{name} == ${ship.planet}">-</td>
   </tr>
   </tbody>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
