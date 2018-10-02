@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Bank of Simba</title>
+</head>
+<body>
+<h1>Bank of Simba</h1>
+<table class="table table-hover">
+  <thead>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Balance</th>
+  <th>Animal Type</th>
+  </thead>
+  <tbody>
+  <tr th:each="bankAccount:$bankAccounts}" th:object="${bankAccount}">
+    <td th:text="*{id}"></td>
+    <td th:text="*{name}"></td>
+    <td th:text="*{balance}"></td>
+    <td th:text="*{animalType}"></td>
+  </tr>
+
+  </tbody>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>
+</body>
+</html>
