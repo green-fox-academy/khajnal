@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -34,6 +35,18 @@ public class MainController {
   @PostMapping("/submit")
   public String createPost(@ModelAttribute Post post) {
     mainService.savePost(post);
+    return "redirect:/show";
+  }
+
+  @GetMapping("/increase/{id}")
+  public String increaseRank(@PathVariable(value = "id") long id) {
+    mainService.increaseRankById(id);
+    return "redirect:/show";
+  }
+
+  @GetMapping("/decrease/{id}")
+  public String decreaseRank(@PathVariable(value = "id") long id) {
+    mainService.decreaseRankById(id);
     return "redirect:/show";
   }
 }

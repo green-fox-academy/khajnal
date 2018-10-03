@@ -13,8 +13,12 @@
   <tbody>
   <tr th:each="post:${posts}" th:object="${post}">
     <td th:text="*{rank}"></td>
-    <td></td>
-    <td></td>
+    <td>
+      <a th:href="@{'/increase/' + *{id}}">+</a>
+    </td>
+    <td>
+      <a th:href="@{'/decrease/' + *{id}}">-</a>
+    </td>
     <td>
       <a th:href="@{*{url}}" th:text="*{name}"></a>
     </td>

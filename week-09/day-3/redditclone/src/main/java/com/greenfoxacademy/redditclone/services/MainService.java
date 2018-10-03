@@ -8,4 +8,8 @@ public interface MainService {
   List<Post> getAllPosts();
 
   void savePost(Post post);
+
+  void increaseRankById(long id);
+
+  void decreaseRankById(long id);
 }

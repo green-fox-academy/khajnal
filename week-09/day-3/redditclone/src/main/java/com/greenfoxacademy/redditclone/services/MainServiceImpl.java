@@ -26,4 +26,18 @@ public class MainServiceImpl implements MainService {
   public void savePost(Post post) {
    postRepository.save(post);
   }
+
+  @Override
+  public void increaseRankById(long id) {
+    Post post = postRepository.findById(id).get();
+    post.changeRank(1);
+    postRepository.save(post);
+  }
+
+  @Override
+  public void decreaseRankById(long id) {
+    Post post = postRepository.findById(id).get();
+    post.changeRank(-1);
+    postRepository.save(post);
+  }
 }

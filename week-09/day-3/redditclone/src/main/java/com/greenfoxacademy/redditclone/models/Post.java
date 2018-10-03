@@ -55,4 +55,8 @@ public class Post {
   public void setUrl(String url) {
     this.url = url;
   }
+
+  public void changeRank(int valueToAdd) {
+    rank  += valueToAdd;
+  }
 }
