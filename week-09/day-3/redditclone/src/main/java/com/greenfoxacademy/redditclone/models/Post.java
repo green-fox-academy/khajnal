@@ -11,14 +11,14 @@ public class Post {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private Long rank;
+  private long rank;
   private String name;
   private String url;
 
   public Post() {
   }
 
-  public Post(Long rank, String name, String url) {
+  public Post(long rank, String name, String url) {
     this.rank = rank;
     this.name = name;
     this.url = url;
@@ -32,11 +32,11 @@ public class Post {
     this.id = id;
   }
 
-  public Long getRank() {
+  public long getRank() {
     return rank;
   }
 
-  public void setRank(Long rank) {
+  public void setRank(long rank) {
     this.rank = rank;
   }
 

@@ -1,8 +1,11 @@
 package com.greenfoxacademy.redditclone.services;
 
+import com.greenfoxacademy.redditclone.models.Post;
 import com.greenfoxacademy.redditclone.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MainServiceImpl implements MainService {
@@ -12,5 +15,15 @@ public class MainServiceImpl implements MainService {
   @Autowired
   public MainServiceImpl(PostRepository postRepository) {
     this.postRepository = postRepository;
+  }
+
+  @Override
+  public List<Post> getAllPosts() {
+    return postRepository.findAll();
+  }
+
+  @Override
+  public void savePost(Post post) {
+   postRepository.save(post);
   }
 }
