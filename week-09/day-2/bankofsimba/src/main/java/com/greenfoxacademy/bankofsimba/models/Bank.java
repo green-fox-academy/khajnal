@@ -1,6 +1,7 @@
 package com.greenfoxacademy.bankofsimba.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,9 +13,11 @@ public class Bank {
   List<BankAccount> bankAccounts;
 
   public Bank() {
+    bankAccounts = new ArrayList<>();
   }
 
   public Bank(List<BankAccount> bankAccounts) {
+    bankAccounts = new ArrayList<>();
     this.bankAccounts = bankAccounts;
   }
 
@@ -32,5 +35,10 @@ public class Bank {
 
   public void setBankAccounts(List<BankAccount> bankAccounts) {
     this.bankAccounts = bankAccounts;
+  }
+
+  public void addToList(BankAccount bankAccount) {
+    bankAccounts.add(bankAccount);
+    bankAccount.setBank(this);
   }
 }

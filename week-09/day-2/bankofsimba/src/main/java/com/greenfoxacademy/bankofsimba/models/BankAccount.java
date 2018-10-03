@@ -1,9 +1,6 @@
 package com.greenfoxacademy.bankofsimba.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.DecimalFormat;
 
 @Entity
@@ -15,6 +12,9 @@ public class BankAccount {
   private String name;
   private String balance;
   private String animalType;
+  @OneToOne
+  private Bank bank;
+
 
   public BankAccount() {
   }
@@ -22,7 +22,7 @@ public class BankAccount {
   public BankAccount(String name, double balance, String animalType) {
     this.name = name;
     DecimalFormat df = new DecimalFormat("#.##");
-    this.balance = df.format(balance) + "zebra";
+    this.balance = df.format(balance) + " zebra";
     this.animalType = animalType;
   }
 
@@ -48,7 +48,7 @@ public class BankAccount {
 
   public void setBalance(double balance) {
     DecimalFormat df = new DecimalFormat("#.##");
-    this.balance = df.format(balance) + "zebra";
+    this.balance = df.format(balance) + " zebra";
   }
 
   public String getAnimalType() {
@@ -57,5 +57,13 @@ public class BankAccount {
 
   public void setAnimalType(String animalType) {
     this.animalType = animalType;
+  }
+
+  public Bank getBank() {
+    return bank;
+  }
+
+  public void setBank(Bank bank) {
+    this.bank = bank;
   }
 }

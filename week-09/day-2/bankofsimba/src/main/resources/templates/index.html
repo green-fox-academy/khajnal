@@ -16,7 +16,7 @@
   <th>Animal Type</th>
   </thead>
   <tbody>
-  <tr th:each="bankAccount:$bankAccounts}" th:object="${bankAccount}">
+  <tr th:each="bankAccount:${accounts}" th:object="${bankAccount}">
     <td th:text="*{id}"></td>
     <td th:text="*{name}"></td>
     <td th:text="*{balance}"></td>
