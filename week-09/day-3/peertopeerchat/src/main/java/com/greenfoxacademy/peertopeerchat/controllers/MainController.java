@@ -40,4 +40,11 @@ public class MainController {
     String id = user.getId();
     return "redirect:/" + id;
   }
+
+  @PostMapping("/updateName")
+  public String updateName(@ModelAttribute User user) {
+    mainService.saveUser(user);
+    String id = user.getId();
+    return "redirect:/" + id;
+  }
 }
