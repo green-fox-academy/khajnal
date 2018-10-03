@@ -20,4 +20,9 @@ public class MainServiceImpl implements MainService{
   public void saveUser(User user) {
     userRepository.save(user);
   }
+
+  @Override
+  public User findUserById(String id) {
+    return userRepository.findById(id).get();
+  }
 }

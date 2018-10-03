@@ -5,9 +5,7 @@ import com.greenfoxacademy.peertopeerchat.services.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -20,7 +18,13 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String getMain(Model model) {
+  public String getBackToRegisty() {
+    return "redirect:/register";
+  }
+
+  @GetMapping("/{id}")
+  public String getMain(Model model, @PathVariable(value = "id") String id) {
+    model.addAttribute("user", mainService.findUserById(id));
     return "index";
   }
 
@@ -33,6 +37,7 @@ public class MainController {
   @PostMapping("/register")
   public String getNewUser(@ModelAttribute User user) {
     mainService.saveUser(user);
-    return "redirect:/";
+    String id = user.getId();
+    return "redirect:/" + id;
   }
 }

@@ -10,7 +10,7 @@
 <h1 style="text-align: center">Enter</h1>
 <form action="/register" method="post" th:object="${user}">
   <label for="userName">Choose your username:</label>
-  <input type="text" id="userName" name="id">
+  <input type="text" id="userName" name="id" required>
   <input type="submit" text="Enter">
 </form>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
