@@ -32,21 +32,21 @@
     <th>Delete</th>
   </tr>
   </thead>
-  <div th:each="todo:${todolist}">
+  <div th:each="todo:${todolist}" th:object="${todo}">
     <tr>
-      <td th:text="${todo.getId()}"></td>
-      <td th:text="${todo.getTitle()}"></td>
-      <div th:switch="${todo.isDone()}">
+      <td th:text="*{id}"></td>
+      <td th:text="*{title}"></td>
+      <div th:switch="*{done}">
         <td th:case="true"><span class="glyphicon glyphicon-ok" style="color: rgb(26,94,37)"></span></td>
         <td th:case="false"><span class="glyphicon glyphicon-remove" style="color: rgb(172,29,28)"></span></td>
       </div>
-      <div th:switch="${todo.isUrgent()}">
+      <div th:switch="*{urgent}">
         <td th:case="true"><span class="glyphicon glyphicon-ok" style="color: rgb(26,94,37)"></span></td>
         <td th:case="false"><span class="glyphicon glyphicon-remove" style="color: rgb(172,29,28)"></span></td>
       </div>
-      <td th:text="${todo.dateOfCreation}"></td>
-      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}" class="glyphicon glyphicon-pencil" style="color: blue"></a></td>
-      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}" class="glyphicon glyphicon-ban-circle" style="color: darkred"></a></td>
+      <td th:text="*{dateOfCreation}"></td>
+      <td><a th:href="@{'/todo/' + *{id} + '/edit'}" class="glyphicon glyphicon-pencil" style="color: blue"></a></td>
+      <td><a th:href="@{'/todo/' + *{id} + '/delete'}" class="glyphicon glyphicon-ban-circle" style="color: darkred"></a></td>
     </tr>
     </ul>
   </div>
@@ -55,7 +55,6 @@
   <a href="/todo/?isActive=true" class="btn btn-default btn-md" role="button" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-remove-circle"></span> Active Todos</a>
   <a href="/todo/?isActive=false" class="btn btn-default btn-md" role="button" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-ok-circle"></span> Done Todos</a>
   <a href="/todo/" role="button" class="btn btn-default btn-md" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-eye-open"></span> All Todos</a>
-  <a href="/todo/listAssignees" role="button" class="btn btn-default btn-md" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-user"></span> All Assignees</a>
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>

@@ -1,6 +1,5 @@
 package com.greenfoxacademy.springsecurity.controllers;
 
-
 import com.greenfoxacademy.springsecurity.models.Todo;
 import com.greenfoxacademy.springsecurity.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class TodoController {
   }
 
   @GetMapping(value = {"/list", "/"})
-  public String list(@RequestParam(value = "isActive", required = false) boolean isActive, @RequestParam(value = "value", required = false) String searchedValue, Model model) {
+  public String list(@RequestParam(value = "isActive", required = false) Boolean isActive, @RequestParam(value = "value", required = false) String searchedValue, Model model) {
     model.addAttribute("todolist", todoService.getProperTodos(isActive, searchedValue));
     return "todoslist";
   }
@@ -32,13 +31,14 @@ public class TodoController {
   }
 
   @GetMapping("/add")
-  public String getAddPage() {
+  public String getAddPage(Model model) {
+    model.addAttribute("todo", new Todo());
     return "addTodo";
   }
 
   @PostMapping("/add")
-  public String addTodoFromUserInput(@ModelAttribute(value = "newtodo") String title) {
-    todoService.save(new Todo(title));
+  public String addTodoFromUserInput(@ModelAttribute Todo todo) {
+    todoService.save(todo);
     return "redirect:/todo/";
   }
 

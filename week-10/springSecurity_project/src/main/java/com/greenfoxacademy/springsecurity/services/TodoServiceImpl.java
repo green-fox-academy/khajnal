@@ -49,4 +49,9 @@ public class TodoServiceImpl implements TodoService {
     }
     return properTodo;
   }
+
+  @Override
+  public List<Todo> findAll() {
+    return todoRepository.findAllByOrderByIdAsc();
+  }
 }

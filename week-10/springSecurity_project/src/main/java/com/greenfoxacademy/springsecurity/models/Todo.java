@@ -19,11 +19,6 @@ public class Todo {
   private String dateOfCreation;
 
   public Todo() {
-
-  }
-
-  public Todo(String title) {
-    this.title = title;
     LocalDateTime now = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MMMM dd. HH:mm:ss");
     this.dateOfCreation = now.format(formatter);

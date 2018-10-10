@@ -12,4 +12,6 @@ public interface TodoService {
   void deleteById(long id);
 
   List<Todo> getProperTodos(Boolean isActive, String searchedValue);
+
+  List<Todo> findAll();
 }
