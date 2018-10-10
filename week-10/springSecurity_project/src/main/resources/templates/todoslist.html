@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Tasks to do</title>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Nixie+One" rel="stylesheet">
+</head>
+<body style="background-color: rgb(222,222,222) ; font-family: 'Nixie One', cursive; color: black">
+<form action="/todo/" method="post" style="text-align: right">
+  <input type="text" placeholder="Search your todos" name="searchedValue">
+  <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
+</form>
+<h1 style="text-transform: uppercase ; font-family:'Cinzel Decorative', cursive" class="text-center">Your tasks to
+  do</h1>
+<div class="text-center">
+  <form action="/todo/add" method="get">
+    <button type="=submit" class="btn btn-default btn-md" style="background-color: rgb(171,172,171); color: rgb(95,95,95)">
+      <span class="glyphicon glyphicon-star"></span><b> Create new Todo</b>
+    </button>
+  </form>
+</div>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Action</th>
+    <th>Done</th>
+    <th>Urgent</th>
+    <th>Time of creation</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <div th:each="todo:${todolist}">
+    <tr>
+      <td th:text="${todo.getId()}"></td>
+      <td th:text="${todo.getTitle()}"></td>
+      <div th:switch="${todo.isDone()}">
+        <td th:case="true"><span class="glyphicon glyphicon-ok" style="color: rgb(26,94,37)"></span></td>
+        <td th:case="false"><span class="glyphicon glyphicon-remove" style="color: rgb(172,29,28)"></span></td>
+      </div>
+      <div th:switch="${todo.isUrgent()}">
+        <td th:case="true"><span class="glyphicon glyphicon-ok" style="color: rgb(26,94,37)"></span></td>
+        <td th:case="false"><span class="glyphicon glyphicon-remove" style="color: rgb(172,29,28)"></span></td>
+      </div>
+      <td th:text="${todo.dateOfCreation}"></td>
+      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}" class="glyphicon glyphicon-pencil" style="color: blue"></a></td>
+      <td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}" class="glyphicon glyphicon-ban-circle" style="color: darkred"></a></td>
+    </tr>
+    </ul>
+  </div>
+</table>
+<div align="center">
+  <a href="/todo/?isActive=true" class="btn btn-default btn-md" role="button" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-remove-circle"></span> Active Todos</a>
+  <a href="/todo/?isActive=false" class="btn btn-default btn-md" role="button" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-ok-circle"></span> Done Todos</a>
+  <a href="/todo/" role="button" class="btn btn-default btn-md" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-eye-open"></span> All Todos</a>
+  <a href="/todo/listAssignees" role="button" class="btn btn-default btn-md" style="background-color: rgb(171,172,171); color: rgb(95,95,95)"><span class="glyphicon glyphicon-user"></span> All Assignees</a>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
