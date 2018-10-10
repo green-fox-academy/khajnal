@@ -10,7 +10,7 @@
 <h1>Peer to Peer chatprogram</h1>
 <form action="/updateName" method="post" th:object="${user}">
   <label for="userNameUpdate">Update your username</label>
-  <input type="text" id="userNameUpdate" name="name" th:field="*{id}" required>
+  <input type="text" id="userNameUpdate" th:field="*{id}" required>
   <input type="submit" text="Update">
 </form>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
