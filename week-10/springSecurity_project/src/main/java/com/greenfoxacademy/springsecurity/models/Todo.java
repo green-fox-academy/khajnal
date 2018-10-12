@@ -24,6 +24,13 @@ public class Todo {
     this.dateOfCreation = now.format(formatter);
   }
 
+  public Todo(String title) {
+    this.title = title;
+    LocalDateTime now = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MMMM dd. HH:mm:ss");
+    this.dateOfCreation = now.format(formatter);
+  }
+
   public Todo(String title, boolean urgent, boolean done) {
     this.title = title;
     this.urgent = urgent;
